@@ -1,4 +1,5 @@
 sed -i -e "s/XXX/${PASSWORD}/" /opt/murano/etc/murano/murano.conf
+git fetch https://review.openstack.org/openstack/murano refs/changes/$REVISION && git checkout FETCH_HEAD
 tox -e venv -- murano-api --config-file ./etc/murano/murano.conf &
 while ! nc -z localhost 8082; do sleep 8; done
 tox -e venv -- murano-db-manage \
