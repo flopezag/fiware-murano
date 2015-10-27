@@ -10,7 +10,7 @@ rabbit:
    image: rabbitmq:3
    container_name: rabbit
 murano:
-  image: hmunfru/fiware-murano
+  image: fiware-murano
   extra_hosts:
   - "murano.lab.fiware.org:127.0.0.1"
   ports:
@@ -22,7 +22,7 @@ murano:
      - PASSWORD
      - REVISION
 murano-test:
-  image: hmunfru/murano-test
+  image: murano-test
   links:
    - murano
   environment:
