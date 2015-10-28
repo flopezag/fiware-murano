@@ -1,24 +1,37 @@
-# fiware-murano
+=============
+fiware-murano
+=============
+
 FIWARE Cloud implementations of the OpenStack Murano components with docker
 
-#Requirements
 
-* Install compose_
+Requirements
+============
 
-#How to create murano image
- 
-    cd fiwaremurano
-    docker build . -t fiware-murano
+- Install compose_
+
+How to create murano image
+==========================
+
+.. code::
+
+    $ cd fiwaremurano
+    $ docker build . -t fiware-murano
     
-#How to create murano-dashboard image
+How to create murano-dashboard image
+====================================
 
-    cd dashboard
-    docker build . -t murano-dashboard
+.. code::
+
+    $ cd dashboard
+    $ docker build . -t murano-dashboard
     
-**Start containers using docker-compose:**
- 
-    export PASSWORD=<openstack admin password>
-    docker-compose -f docker-compose-dashboard.yml up
+- Start containers using docker-compose:
+
+ .. code::
+
+    $ export PASSWORD=<openstack admin password>
+    $ docker-compose -f docker-compose-dashboard.yml up
 
 
        
