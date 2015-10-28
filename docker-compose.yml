@@ -19,8 +19,8 @@ murano:
    - mysql
    - rabbit
   environment: 
-     - PASSWORD
-     - REVISION
+   - PASSWORD
+   - REVISION
 murano-test:
   image: murano-test
   links:
