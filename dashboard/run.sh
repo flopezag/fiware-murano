@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
 
-
 MURANO=`docker ps -a -q --filter="name=murano"`
-echo $MURANO
+
 if [ "$MURANO" != "" ]
 then
     echo "stop murano"
