@@ -16,7 +16,7 @@ How to create murano image
 .. code::
 
     $ cd fiwaremurano
-    $ docker build . -t fiware-murano
+    $ docker build -t fiware-murano .
     
 How to create murano-dashboard image
 ====================================
@@ -24,7 +24,7 @@ How to create murano-dashboard image
 .. code::
 
     $ cd dashboard
-    $ docker build . -t murano-dashboard
+    $ docker build -t murano-dashboard .
     
 - Start containers using docker-compose:
 
