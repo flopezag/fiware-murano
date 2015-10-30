@@ -7,3 +7,6 @@ git fetch https://review.openstack.org/openstack/murano refs/changes/$REVISION &
 sed -i -e "s/XXX/${PASSWORD}/" /opt/murano/murano/tests/functional/engine/config.conf
 sed -i -e "s/XXX/${PASSWORD}/" /etc/tempest/tempest.conf
 while ! nc -z murano 8082; do sleep 8; done
+export TEMPEST_CONFIG_DIR=/etc/tempest/
+export TEMPEST_CONFIG=tempest.conf
+cat /etc/tempest/tempest.conf
