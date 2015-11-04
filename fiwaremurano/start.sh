@@ -1,5 +1,6 @@
 sed -i -e "s/XXX/${PASSWORD}/" /opt/murano/etc/murano/murano.conf
 git fetch https://review.openstack.org/openstack/murano refs/changes/$REVISION && git checkout FETCH_HEAD
+cp /opt/murano/meta2 /opt/murano/meta
 tox -e venv -- murano-db-manage \
   --config-file ./etc/murano/murano.conf upgrade
 tox -e venv -- murano-api --config-file ./etc/murano/murano.conf &
