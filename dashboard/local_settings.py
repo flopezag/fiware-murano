@@ -50,19 +50,19 @@ WEBROOT = '/'
 # NOTE: The version should be formatted as it appears in the URL for the
 # service API. For example, The identity service APIs have inconsistent
 # use of the decimal point, so valid options would be 2.0 or 3.
-#OPENSTACK_API_VERSIONS = {
-#    "data-processing": 1.1,
-#    "identity": 3,
-#    "volume": 2,
-#}
+OPENSTACK_API_VERSIONS = {
+    "data-processing": 1.1,
+    "identity": 3,
+    "volume": 2,
+}
 
 # Set this to True if running on multi-domain model. When this is enabled, it
 # will require user to enter the Domain name in addition to username for login.
-#OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = False
+OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
 
 # Overrides the default domain used when running on single-domain model
 # with Keystone V3. All entities will be created in the default domain.
-#OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'Default'
+OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = 'default'
 
 # Set Console type:
 # valid options are "AUTO"(default), "VNC", "SPICE", "RDP", "SERIAL" or None
@@ -133,14 +133,13 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #EMAIL_HOST_PASSWORD = 'top-secret!'
 
 # For multiple regions uncomment this configuration, and add (endpoint, title).
-#AVAILABLE_REGIONS = [
-#    ('http://cloud.lab.fiware.org:4731/v3', 'Spain2'),
-#    ('http://cluster2.example.com:5000/v2.0', 'cluster2'),
-#]
+AVAILABLE_REGIONS = [
+    ('http://cloud.lab.fiware.org:4731/v3', 'Spain2'),
+]
 
 OPENSTACK_HOST = "cloud.lab.fiware.org"
-OPENSTACK_KEYSTONE_URL = "http://%s:4730/v2.0" % OPENSTACK_HOST
-OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
+OPENSTACK_KEYSTONE_URL = "http://%s:4730/v3" % OPENSTACK_HOST
+OPENSTACK_KEYSTONE_DEFAULT_ROLE = "member"
 
 # Enables keystone web single-sign-on if set to True.
 #WEBSSO_ENABLED = False
@@ -297,14 +296,14 @@ IMAGE_RESERVED_CUSTOM_PROPERTIES = []
 # OPENSTACK_ENDPOINT_TYPE specifies the endpoint type to use for the endpoints
 # in the Keystone service catalog. Use this setting when Horizon is running
 # external to the OpenStack environment. The default is 'publicURL'.
-#OPENSTACK_ENDPOINT_TYPE = "publicURL"
+OPENSTACK_ENDPOINT_TYPE = "publicURL"
 
 # SECONDARY_ENDPOINT_TYPE specifies the fallback endpoint type to use in the
 # case that OPENSTACK_ENDPOINT_TYPE is not present in the endpoints
 # in the Keystone service catalog. Use this setting when Horizon is running
 # external to the OpenStack environment. The default is None.  This
 # value should differ from OPENSTACK_ENDPOINT_TYPE if used.
-#SECONDARY_ENDPOINT_TYPE = "publicURL"
+SECONDARY_ENDPOINT_TYPE = "publicURL"
 
 # The number of objects (Swift containers/objects or images) to display
 # on a single page before providing a paging element (a "more" link)
