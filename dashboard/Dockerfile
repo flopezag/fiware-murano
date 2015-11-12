@@ -20,5 +20,7 @@ RUN cp /opt/murano-dashboard/muranodashboard/local/_50_murano.py /opt/horizon/op
 # config file
 COPY local_settings.py /opt/horizon/openstack_dashboard/local/
 RUN tox -e venv -- python manage.py syncdb --noinput
+COPY base.py /opt/base.py
+RUN cp /opt/base.py .tox/venv/lib/python2.7/site-packages/keystoneclient/auth/identity/base.py
 EXPOSE 8000
 CMD export WEBIP=`ip route get 8.8.8.8 | awk '{print $NF; exit}'`; tox -e venv -- python manage.py runserver $WEBIP:8000
