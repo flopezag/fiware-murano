@@ -33,9 +33,6 @@ Methods:
           "%CA_ROOT_CERT_BASE64%": ""
       - $initRepla:  $initScript.replace($scriptReplacements)
 
-
       - Return:
-          data: $muranoScript + $conf_langScript +  $initRepla 
+          data: $muranoScript + $conf_langScript + $initRepla
           format: HEAT_CFNTOOLS
-
-
