@@ -13,6 +13,7 @@ RUN python setup.py install
 RUN pip install nose tempest-lib
 WORKDIR /opt/murano
 RUN pip install -r test-requirements.txt
+COPY requirements.txt /opt/murano/requirements2.txt
 COPY requirements.txt /opt/murano/requirements.txt
 RUN pip install -r requirements.txt
 RUN python setup.py install

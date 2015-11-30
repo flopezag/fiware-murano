@@ -3,7 +3,12 @@ host="murano"
 ip="`gethostip -d "$host"`"
 echo $ip
 echo "$ip murano.lab.fiware.org" >> /etc/hosts
+rm -f /opt/murano/requirements.txt
 git fetch https://review.openstack.org/openstack/murano refs/changes/$REVISION && git checkout FETCH_HEAD
+cp /opt/murano/requirements2.txt /opt/murano/requirements.txt
+pip install -r requirements.txt
+pip install -r test-requirements.txt
+python setup.py install
 sed -i -e "s/XXX/${PASSWORD}/" /opt/murano/murano/tests/functional/engine/config.conf
 sed -i -e "s/XXX/${PASSWORD}/" /etc/tempest/tempest.conf
 while ! nc -z murano 8082; do sleep 8; done
