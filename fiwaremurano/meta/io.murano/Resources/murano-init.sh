@@ -12,8 +12,3 @@ else
   echo $muranoAgent | base64 -d > /etc/init.d/murano-agent
   pip install murano-agent
 fi
-
-
-
-
-
