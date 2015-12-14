@@ -8,7 +8,7 @@
 # Description:       <DESCRIPTION>
 ### END INIT INFO
 
-SCRIPT="/usr/local/bin/muranoagent --config-dir /etc/murano"
+SCRIPT="muranoagent --config-dir /etc/murano"
 RUNAS=root
 
 PIDFILE=/var/run/murano.pid

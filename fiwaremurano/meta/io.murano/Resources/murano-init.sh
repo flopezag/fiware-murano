@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ps cax | grep murano-agent > /dev/null
+ps cax | grep muranoagent > /dev/null
 if [ $? -eq 0 ]; then
   echo "murano-agent service exists"
 else
@@ -10,5 +10,11 @@ else
   echo $muranoAgentService | base64 -d > /etc/systemd/system/murano-agent.service
   muranoAgent='%MURANO_AGENT%'
   echo $muranoAgent | base64 -d > /etc/init.d/murano-agent
-  pip install murano-agent
+  chmod +x /etc/init.d/murano-agent
+  pip install git+https://github.com/openstack/murano-agent
 fi
+
+
+
+
+
