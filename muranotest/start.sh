@@ -22,4 +22,5 @@ cp /opt/murano/murano/tests/functional/engine/config2.conf /opt/murano/murano/te
 nosetests --with-xunit --xunit-file /opt/test3.xml murano.tests.functional.engine
 cp /opt/murano/murano/tests/functional/engine/config3.conf /opt/murano/murano/tests/functional/engine/config.conf
 nosetests --with-xunit --xunit-file /opt/test4.xml murano.tests.functional.engine
-
+cp /opt/murano/murano/tests/functional/engine/config4.conf /opt/murano/murano/tests/functional/engine/config.conf
+nosetests --with-xunit --xunit-file /opt/test5.xml murano.tests.functional.engine

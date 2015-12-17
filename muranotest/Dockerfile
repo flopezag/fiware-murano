@@ -8,6 +8,7 @@ RUN git clone https://github.com/openstack/murano /opt/murano/
 COPY config.conf /opt/murano/murano/tests/functional/engine/
 COPY config2.conf /opt/murano/murano/tests/functional/engine/
 COPY config3.conf /opt/murano/murano/tests/functional/engine/
+COPY config4.conf /opt/murano/murano/tests/functional/engine/
 RUN git clone https://github.com/openstack/tempest /opt/murano/tempest
 WORKDIR /opt/murano/tempest
 RUN pip install -r requirements.txt
