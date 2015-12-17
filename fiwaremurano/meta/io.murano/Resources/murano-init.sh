@@ -34,8 +34,5 @@ else
 fi
 
 
-install python6
-
-
 
 
