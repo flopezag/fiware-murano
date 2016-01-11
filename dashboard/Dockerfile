@@ -8,10 +8,10 @@ RUN pip install tox
 
 RUN mkdir /opt/murano-dashboard
 RUN git clone git://git.openstack.org/openstack/murano-dashboard /opt/murano-dashboard
-RUN cd /opt/murano-dashboard; git checkout stable/kilo
+RUN cd /opt/murano-dashboard; git checkout stable/liberty
 RUN mkdir /opt/horizon
 RUN git clone git://git.openstack.org/openstack/horizon /opt/horizon
-RUN cd /opt/horizon; git checkout stable/kilo
+RUN cd /opt/horizon; git checkout stable/liberty
 WORKDIR /opt/horizon
 
 RUN tox -e venv -- pip install -e ../murano-dashboard
