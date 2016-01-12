@@ -33,18 +33,18 @@ curl http://130.206.81.64:3000/v1/support/$region/sshkey --output /etc/fiware-su
 
 if [ -f "/etc/fiware-support/gpgbk.pub" ]
 then
-	cp /etc/fiware-support/gpgbk.pub /etc/fiware-support/defaultgpg.pub
+  cp /etc/fiware-support/gpgbk.pub /etc/fiware-support/defaultgpg.pub
 else
-    echo "Error no obtaining pgp key. Returning.."
-    return
+  echo "Error no obtaining pgp key. Returning.."
+  return
 fi
 
 if [ -f "/etc/fiware-support/sshbk.pub" ]
 then
-	cp /etc/fiware-support/sshbk.pub /etc/fiware-support/defaultssh.pub
+  cp /etc/fiware-support/sshbk.pub /etc/fiware-support/defaultssh.pub
 else
-    echo "Error no obtaining ssh key. Returning.."
-    return
+  echo "Error no obtaining ssh key. Returning.."
+  return
 fi
 
 if pidof /sbin/activate_support_account.py >> /dev/null
