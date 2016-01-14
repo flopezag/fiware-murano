@@ -1,0 +1,55 @@
+Namespaces:
+  =: io.murano.resources
+  sys: io.murano.system
+  std: io.murano
+
+Name: LinuxMuranoInstance
+
+Extends:
+  - LinuxInstance
+
+Methods:
+ prepareUserData:
+    Body:
+      - $environment: $.find(std:Environment).require()
+      - $resources: new(sys:Resources)
+      - $configFile: $resources.string('Agent-v2.template')
+      - $initScript: $resources.string('linux-init.sh')
+      - $muranoScript: $resources.string('murano-init.sh')
+      - $muranoAgentConf: $resources.string('murano-agent.conf')
+      - $muranoAgentService: $resources.string('murano-agent.service')
+      - $muranoAgent: $resources.string('murano-agent')
+      - $configReplacements:
+          "%RABBITMQ_HOST%": config(rabbitmq, host)
+          "%RABBITMQ_PORT%": config(rabbitmq, port)
+          "%RABBITMQ_USER%": config(rabbitmq, login)
+          "%RABBITMQ_PASSWORD%": config(rabbitmq, password)
+          "%RABBITMQ_VHOST%": config(rabbitmq, virtual_host)
+          "%RABBITMQ_SSL%": str(config(rabbitmq, ssl)).toLower()
+          "%RABBITMQ_INPUT_QUEUE%": $.agent.queueName()
+          "%RESULT_QUEUE%": $environment.agentListener.queueName()
+      - $scriptReplacements:
+          "%AGENT_CONFIG_BASE64%": base64encode($configFile.replace($configReplacements))
+          "%INTERNAL_HOSTNAME%": $.name
+          "%MURANO_SERVER_ADDRESS%": coalesce(config(file_server), config(rabbitmq, host))
+          "%CA_ROOT_CERT_BASE64%": ""
+      - $muranoReplacements:
+          "%MURANO_AGENT_CONF%": base64encode($muranoAgentConf)
+          "%MURANO_AGENT_SERVICE%": base64encode($muranoAgentService)
+          "%MURANO_AGENT%": base64encode($muranoAgent)
+      - $supportScript: $resources.string('support.sh')
+      - $supportReplacements:
+          "%REGION%": config(murano,region_name_for_services)
+      - Return:
+          data: $muranoScript.replace($muranoReplacements) + $initScript.replace($scriptReplacements) + $supportScript.replace($supportReplacements)
+          format: HEAT_CFNTOOLS
+
+ prepareUserDataCloudConfig:
+    Body:
+      - $environment: $.find(std:Environment).require()
+      - $resources: new(sys:Resources)
+      - $murano: $resources.yaml('murano-init.conf')
+      - Return:
+          data: $murano
+          format: RAW
+
