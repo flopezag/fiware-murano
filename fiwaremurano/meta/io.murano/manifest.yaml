@@ -29,6 +29,7 @@ Classes:
   io.murano.resources.LinuxInstance: resources/LinuxInstance.yaml
   io.murano.resources.LinuxMuranoInstance: resources/LinuxMuranoInstance.yaml
   io.murano.resources.ConfLangInstance: resources/ConfLangInstance.yaml
+  io.murano.resources.FiwareMuranoInstance: resources/FiwareMuranoInstance.yaml
   io.murano.resources.HeatSWConfigInstance: resources/HeatSWConfigInstance.yaml
   io.murano.resources.HeatSWConfigLinuxInstance: resources/HeatSWConfigLinuxInstance.yaml
   io.murano.resources.LinuxUDInstance: resources/LinuxUDInstance.yaml
