@@ -3,6 +3,7 @@ RUN apt-get update && sudo apt-get -y install python-pip python-dev \
   libmysqlclient-dev libpq-dev \
   libxml2-dev libxslt1-dev git \
   libffi-dev zip python-mysqldb mysql-server
+RUN pip install -I pip==7.1.2
 RUN pip install tox
 RUN git clone https://github.com/openstack/murano /opt/murano/
 WORKDIR /opt/murano

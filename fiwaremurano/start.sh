@@ -4,6 +4,7 @@ git fetch https://review.openstack.org/openstack/murano refs/changes/$REVISION &
 cp -rf /opt/murano/meta2/* /opt/murano/meta
 echo "MySQL-python" >> /opt/murano/test-requirements.txt
 pip install -I pip==7.1.2
+pip -V
 tox -e venv -- murano-db-manage \
   --config-file ./etc/murano/murano.conf upgrade
 tox -e venv -- murano-api --config-file ./etc/murano/murano.conf &
