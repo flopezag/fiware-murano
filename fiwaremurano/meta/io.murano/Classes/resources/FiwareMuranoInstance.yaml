@@ -1,0 +1,53 @@
+Namespaces:
+  =: io.murano.resources
+  sys: io.murano.system
+  std: io.murano
+
+Name: FiwareMuranoInstance
+
+Extends:
+  - ConfLangInstance
+
+Methods:
+ prepareUserData:
+    Body:
+      - $environment: $.find(std:Environment).require()
+      - $resources: new(sys:Resources)
+      - $supportScript: $resources.string('support.sh')
+      - $supportReplacements:
+          "%REGION%": config(murano,region_name_for_services)
+      - $userData: list($.super($._generateUserData()))[0] + $supportScript.replace($supportReplacements)
+      - Return:
+         data: $._generateInstanceConfigResources($userData)
+         format: RAW
+
+ _generateInstanceConfigResources:
+    Arguments:
+      - userData:
+          Contract: $.string().notNull()
+    Body:
+      - $environment: $.find(std:Environment).require()
+      - $cloudConfigData: list($.super($._generateCloudConfig()))[0]
+      - $bootConfigResourceName: format('boot_config_{0}', $.name)
+      - $bootScriptResourceName: format('boot_script_{0}', $.name)
+      - $userDataResourceName: format('user_data-{0}', $.name)
+      - $template:
+          resources:
+            $bootConfigResourceName:
+              type: 'OS::Heat::CloudConfig'
+              properties:
+                cloud_config: $cloudConfigData
+            $bootScriptResourceName:
+              type: 'OS::Heat::SoftwareConfig'
+              properties:
+                group: ungrouped
+                config: $userData
+            $userDataResourceName:
+              type: 'OS::Heat::MultipartMime'
+              properties:
+                parts:
+                - config: {get_resource: $bootConfigResourceName}
+                - config: {get_resource: $bootScriptResourceName}
+
+      - $environment.stack.updateTemplate($template)
+      - Return: {get_resource: $userDataResourceName}
