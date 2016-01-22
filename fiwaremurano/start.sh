@@ -6,6 +6,7 @@ echo "MySQL-python" >> /opt/murano/test-requirements.txt
 tox -e venv -- murano-db-manage \
   --config-file ./etc/murano/murano.conf upgrade
 tox -e venv -- murano-api --config-file ./etc/murano/murano.conf &
+tail -f /opt/murano/.tox/venv/log/venv-1.log
 while ! nc -z localhost 8082; do sleep 8; done
 cd  ./meta/io.murano
 zip -r ../../io.murano.zip *
