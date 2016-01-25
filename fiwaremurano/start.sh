@@ -3,9 +3,12 @@ sed -i -e "s/XXX/${PASSWORD}/" /opt/murano/etc/murano/murano.conf
 git fetch https://review.openstack.org/openstack/murano refs/changes/$REVISION && git checkout FETCH_HEAD
 cp -rf /opt/murano/meta2/* /opt/murano/meta
 echo "MySQL-python" >> /opt/murano/test-requirements.txt
+pip install -I pip==7.1.2
+pip -V
 tox -e venv -- murano-db-manage \
   --config-file ./etc/murano/murano.conf upgrade
 tox -e venv -- murano-api --config-file ./etc/murano/murano.conf &
+tail -f /opt/murano/.tox/venv/log/venv-1.log
 while ! nc -z localhost 8082; do sleep 8; done
 cd  ./meta/io.murano
 zip -r ../../io.murano.zip *
