@@ -6,6 +6,7 @@ tox -e venv -- murano-db-manage \
   --config-file ./etc/murano/murano.conf upgrade
 tox -e venv -- murano-api --config-file ./etc/murano/murano.conf &
 while ! nc -z localhost 8082; do sleep 8; done
+echo "  io.murano.resources.FiwareMuranoInstance: resources/FiwareMuranoInstance.yaml" >> meta/io.murano/manifest.yaml
 cd  ./meta/io.murano
 zip -r ../../io.murano.zip *
 cd ./../../
