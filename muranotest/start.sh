@@ -1,11 +1,12 @@
+apt-get update
 apt-get install -y curl host syslinux
 host="murano"
 ip="`gethostip -d "$host"`"
 echo $ip
 echo "$ip murano.lab.fiware.org" >> /etc/hosts
-rm -f /opt/murano/requirements.txt
 git fetch https://review.openstack.org/openstack/murano refs/changes/$REVISION && git checkout FETCH_HEAD
-cp /opt/murano/requirements2.txt /opt/murano/requirements.txt
+sed -i  '/^Route/d' /opt/murano/requirements.txt
+echo 'Routes!=2.0,!=2.1,>=1.12.3' >> requirements.txt
 pip install -r requirements.txt
 pip install -r test-requirements.txt
 python setup.py install
