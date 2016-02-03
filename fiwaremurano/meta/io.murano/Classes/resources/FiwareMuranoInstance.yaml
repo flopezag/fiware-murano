@@ -37,20 +37,6 @@ Methods:
     Body:
       $.nid: $nid_in
 
- other:
-    Arguments:
-      - region:
-          Contract: $.string().notNull()
-    Body:
-      - $environment: $.find(std:Environment).require()
-      - $template:
-              resources:
-                $.name:
-                  properties:
-                    metadata: {"region": $region}
-      -  $template: $environment.stack.current().mergeWith($template)
-      -  $environment.stack.updateTemplate($template)
-
  addMetadata:
     Arguments:
       - metadata:
