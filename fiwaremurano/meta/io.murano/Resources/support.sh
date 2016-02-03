@@ -4,7 +4,7 @@ same_uuid() {
   curl 'http://169.254.169.254/openstack/latest/meta_data.json' --output /etc/metadata.json
   if [ -f "/etc/metadata.json" ]
   then
-    if grep -Po '"uuid":.*?[^\\]",' /etc/metadata.json 2>/dev/null | grep `cat /etc/fiware-support/uuid 2>/dev/null` 2>/dev/null; then
+    if grep -Po '"uuid":.*?[^\\]",' /etc/metadata.json 2>/dev/null | grep `cat /etc/fiware-support/uuid 2>/dev/null` 2>/dev/null; then 
       echo "Same uuid"
       return 1
     fi

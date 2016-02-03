@@ -12,7 +12,7 @@ else
   echo $muranoAgent | base64 -d > /etc/init.d/murano-agent
   chmod +x /etc/init.d/murano-agent
   PYTHON_VERSION=`python -c 'import sys; print(".".join(map(str, sys.version_info[:3])))'`
-  if [[ $PYTHON_VERSION == "2.6"* ]]
+  if [ $PYTHON_VERSION == "2.6"* ]
   then
     yum groupinstall "Development tools"
     yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
@@ -29,6 +29,9 @@ else
     /usr/local/bin/pip2.7 install git+https://github.com/openstack/murano-agent
     cp /usr/local/bin/muranoagent /usr/bin/muranoagent
   else
+    cd /opt
+    virtualenv venv
+    source venv/bin/activate
     pip install git+https://github.com/openstack/murano-agent
   fi
 fi

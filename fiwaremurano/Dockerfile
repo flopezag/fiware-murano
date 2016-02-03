@@ -10,5 +10,4 @@ COPY murano.conf /opt/murano/etc/murano/murano.conf
 COPY start.sh /opt/murano/start.sh
 EXPOSE 8082
 COPY meta /opt/murano/meta2
-COPY test-requirements.txt /opt/murano/meta2/test-requirements.txt
 CMD ./start.sh
