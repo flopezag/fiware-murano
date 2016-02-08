@@ -8,18 +8,48 @@ Name: FiwareMuranoInstance
 Extends:
   - ConfLangInstance
 
+Properties:
+  nid:
+    Contract: $.string()
+    Usage: Out
+
+
 Methods:
  prepareUserData:
     Body:
       - $environment: $.find(std:Environment).require()
       - $resources: new(sys:Resources)
       - $supportScript: $resources.string('support.sh')
+      - $region: config(murano,region_name_for_services)
       - $supportReplacements:
-          "%REGION%": config(murano,region_name_for_services)
-      - $userData: list($.super($._generateUserData()))[0] + $supportScript.replace($supportReplacements)
+          "%REGION%": $region
+      - $userData: $.cast(LinuxMuranoInstance).generateUserData() + $supportScript.replace($supportReplacements)
+      - $metadata: {"region" : $region, "nid": $.nid}
+      - $.addMetadata($metadata)
       - Return:
          data: $._generateInstanceConfigResources($userData)
          format: RAW
+
+ addNid:
+    Arguments:
+      - nid_in:
+          Contract: $.string()
+    Body:
+      $.nid: $nid_in
+
+ addMetadata:
+    Arguments:
+      - metadata:
+          Contract: {}
+    Body:
+      - $environment: $.find(std:Environment).require()
+      - $template:
+              resources:
+                $.name:
+                  properties:
+                    metadata: $metadata
+      -  $template: $environment.stack.current().mergeWith($template)
+      -  $environment.stack.updateTemplate($template)
 
  _generateInstanceConfigResources:
     Arguments:
@@ -27,7 +57,7 @@ Methods:
           Contract: $.string().notNull()
     Body:
       - $environment: $.find(std:Environment).require()
-      - $cloudConfigData: list($.super($._generateCloudConfig()))[0]
+      - $cloudConfigData: $.cast(ConfLangInstance).generateCloudConfig()
       - $bootConfigResourceName: format('boot_config_{0}', $.name)
       - $bootScriptResourceName: format('boot_script_{0}', $.name)
       - $userDataResourceName: format('user_data-{0}', $.name)
