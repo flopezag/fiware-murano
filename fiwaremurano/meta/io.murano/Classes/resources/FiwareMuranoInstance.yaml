@@ -20,7 +20,7 @@ Methods:
       - $environment: $.find(std:Environment).require()
       - $resources: new(sys:Resources)
       - $supportScript: $resources.string('support.sh')
-      - $region: config(murano,region_name_for_services)
+      - $region: config(home_region)
       - $supportReplacements:
           "%REGION%": $region
       - $userData: $.cast(LinuxMuranoInstance).generateUserData() + $supportScript.replace($supportReplacements)

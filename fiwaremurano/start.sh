@@ -13,4 +13,5 @@ cd ./../../
 tox -e venv -- murano --murano-url http://localhost:8082 --os-username admin --os-password $PASSWORD \
   --os-tenant-name admin --os-auth-url=http://cloud.lab.fi-ware.org:4730/v2.0 \
   package-import --exists-action u  --is-public io.murano.zip
+sed -i -e "s/interface='admin'/interface='public'/" .tox/venv/lib/python2.7/site-packages/keystoneclient/httpclient.py
 tox -e venv -- murano-engine --config-file ./etc/murano/murano.conf
