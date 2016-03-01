@@ -29,9 +29,6 @@ else
     /usr/local/bin/pip2.7 install git+https://github.com/openstack/murano-agent
     cp /usr/local/bin/muranoagent /usr/bin/muranoagent
   else
-    cd /opt
-    virtualenv venv
-    source venv/bin/activate
     pip install git+https://github.com/openstack/murano-agent
   fi
 fi
