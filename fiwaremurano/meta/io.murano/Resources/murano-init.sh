@@ -4,6 +4,7 @@ ps cax | grep muranoagent > /dev/null
 if [ $? -eq 0 ]; then
   echo "murano-agent service exists"
 else
+  curl https://omnitruck.chef.io/install.sh | sudo bash -s -- -c current -P chefdk
   muranoAgentConf='%MURANO_AGENT_CONF%'
   echo $muranoAgentConf | base64 -d > /etc/init/murano-agent.conf
   muranoAgentService='%MURANO_AGENT_SERVICE%'
