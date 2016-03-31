@@ -1,5 +1,8 @@
 #!/bin/sh
-
+apt-get install -y locales 
+echo 'en_US.UTF-8 UTF-8'>>/etc/locale.gen
+locale-gen
+export LANG=en_US.UTF-8
 ps cax | grep muranoagent > /dev/null
 if [ $? -eq 0 ]; then
   echo "murano-agent service exists"
