@@ -4,8 +4,7 @@ RUN apt-get update &&  apt-get -y install python-pip python-dev \
   libxml2-dev libxslt1-dev git \
   libffi-dev zip python-mysqldb netcat 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install  mysql-server
-RUN pip install tox
-RUN git clone https://github.com/openstack/murano /opt/murano/
+RUN pip install tox; git clone https://github.com/openstack/murano /opt/murano/
 WORKDIR /opt/murano
 COPY murano.conf /opt/murano/etc/murano/murano.conf
 COPY start.sh /opt/murano/start.sh
