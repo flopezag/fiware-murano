@@ -7,6 +7,8 @@ ps cax | grep muranoagent > /dev/null
 if [ $? -eq 0 ]; then
   echo "murano-agent service exists"
 else
+
+  sed -i -e 's/Defaults    requiretty.*/ #Defaults    requiretty/g' /etc/sudoers
   muranoAgentConf='%MURANO_AGENT_CONF%'
   echo $muranoAgentConf | base64 -d > /etc/init/murano-agent.conf
   muranoAgentService='%MURANO_AGENT_SERVICE%'
@@ -24,12 +26,11 @@ else
     cd Python-2.7.6
     ./configure --prefix=/usr/local --enable-unicode=ucs4 --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
     make && make altinstall
-    wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py
-
-    # Then install it for Python 2.7 and/or Python 3.3:
-    /usr/local/bin/python2.7 ez_setup.py
-    /usr/local/bin/easy_install-2.7 pip
-    /usr/local/bin/pip2.7 install git+https://github.com/openstack/murano-agent
+    wget --no-check-certificate http://pypi.python.org/packages/source/d/distribute/distribute-0.6.35.tar.gz
+    tar xf distribute-0.6.35.tar.gz
+    cd distribute-0.6.35;python2.7 setup.py install
+    easy_install-2.7 pip
+    pip2.7 install git+https://github.com/openstack/murano-agent
     cp /usr/local/bin/muranoagent /usr/bin/muranoagent
   else
     pip install git+https://github.com/openstack/murano-agent
