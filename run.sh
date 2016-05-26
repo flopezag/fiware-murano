@@ -11,6 +11,6 @@ then
     docker rmi fiware-murano
 fi
 
-docker build -t fiware-murano fiware-murano
+docker build -t fiware-murano fiwaremurano
 export PASSWORD=$1
 docker-compose -f docker-compose-nets.yml up -d
