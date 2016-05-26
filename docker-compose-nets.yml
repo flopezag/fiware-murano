@@ -1,0 +1,33 @@
+version: '2'
+
+services:
+  murano:
+    image: fiware-murano
+    extra_hosts:
+    - "murano.lab.fiware.org:127.0.0.1"
+    ports:
+     - 8082:8082
+    environment:
+     - PASSWORD
+     - REVISION
+    networks:
+       - app_net
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    environment:
+     MYSQL_DATABASE: murano
+     MYSQL_USER: mysql
+     MYSQL_PASSWORD: mysql
+     MYSQL_ROOT_PASSWORD: supersecret
+    networks:
+       - app_net
+  rabbit:
+    image: rabbitmq:3
+    container_name: rabbit
+    networks:
+       - app_net
+
+networks:
+  app_net:
+    driver: bridge
