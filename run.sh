@@ -10,7 +10,7 @@ then
     docker rm -v $(docker ps -a -q)
     docker rmi fiware-murano
 fi
-cd ../fiwaremurano
-docker build -t fiware-murano .
+
+docker build -t fiware-murano fiware-murano
 export PASSWORD=$1
 docker-compose -f docker-compose-nets.yml up -d
