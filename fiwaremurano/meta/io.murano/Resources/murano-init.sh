@@ -35,6 +35,5 @@ else
     pip install git+https://github.com/openstack/murano-agent
   fi
 fi
-sed '/security/d' /etc/cloud/templates/sources.list.debian.tmp
 
 
