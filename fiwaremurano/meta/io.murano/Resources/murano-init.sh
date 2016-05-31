@@ -19,24 +19,22 @@ else
   PYTHON_VERSION=`python -c 'import sys; print(".".join(map(str, sys.version_info[:3])))'`
   if [[ $PYTHON_VERSION == "2.6"* ]]
   then
-    yum groupinstall "Development tools"
+    yum -y groupinstall "Development tools"
     yum -y install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gdbm-devel db4-devel libpcap-devel xz-devel
     wget http://python.org/ftp/python/2.7.6/Python-2.7.6.tar.xz
     tar xf Python-2.7.6.tar.xz
     cd Python-2.7.6
     ./configure --prefix=/usr/local --enable-unicode=ucs4 --enable-shared LDFLAGS="-Wl,-rpath /usr/local/lib"
-    make && make altinstall
-    wget --no-check-certificate http://pypi.python.org/packages/source/d/distribute/distribute-0.6.35.tar.gz
-    tar xf distribute-0.6.35.tar.gz
-    cd distribute-0.6.35;python2.7 setup.py install
-    easy_install-2.7 pip
-    pip2.7 install git+https://github.com/openstack/murano-agent
+    make && make altinstall 
+    wget https://bootstrap.pypa.io/ez_setup.py
+    /usr/local/bin/python2.7 ez_setup.py
+    /usr/local/bin/easy_install-2.7 pip
+    /usr/local/bin/pip2.7 install git+https://github.com/openstack/murano-agent
     cp /usr/local/bin/muranoagent /usr/bin/muranoagent
   else
     pip install git+https://github.com/openstack/murano-agent
   fi
 fi
-
-
+sed '/security/d' /etc/cloud/templates/sources.list.debian.tmp
 
 
