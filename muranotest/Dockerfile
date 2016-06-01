@@ -9,6 +9,7 @@ COPY config2.conf /opt/murano/murano/tests/functional/engine/
 COPY config3.conf /opt/murano/murano/tests/functional/engine/
 COPY config4.conf /opt/murano/murano/tests/functional/engine/
 WORKDIR /opt/murano/tempest
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt; pip install nose tempest-lib;  python setup.py install
 WORKDIR /opt/murano
 COPY start.sh /opt/murano/start.sh
