@@ -43,10 +43,6 @@ __ `FIWARE Murano GitHub README`_
 See also
 ========
 
--  `Monitoring Federation OpenStack Infrastructure`_ presentation summarises
-   the development of this component as a joint task between FIWARE and XIFI
-   projects.
-
 
 .. REFERENCES
 
