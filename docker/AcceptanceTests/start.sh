@@ -1,5 +1,5 @@
 apt-get update
-apt-get install -y curl host syslinux
+apt-get install -y curl host syslinux-utils
 host="murano"
 ip="`gethostip -d "$host"`"
 echo $ip
