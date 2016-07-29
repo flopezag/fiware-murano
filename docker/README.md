@@ -45,10 +45,10 @@ If you want to stop the scenario you have to execute `docker ps` and you see som
 
 Take the Container ID and execute `docker stop b8e1de41deb5` or `docker kill b8e1de41deb5`. Note that you will lose any data that was being used in Aiakos using this method.
 
-Now is time to execute the container. This time, we take advantage of the docker compose. Just execute `docker-compose up` to launch the architecture. You can take a look to the log generated executing `docker-compose logs`. If you want to get the result of the acceptance tests, just execute `docker cp docker_fiware-murano-acceptance_1:/opt/fiware-murano/test/acceptance/testreport .`
+Now is time to execute the container. This time, we take advantage of the docker compose. Just execute `docker-compose up` to launch the architecture. You can take a look to the log generated executing `docker-compose logs`.
 
 ----
-## 3. Run Acceptance tests
+## 2. Run Acceptance tests
 
 Taking into account that you download the repository from GitHub (See Section **1. The Fastest Way**). This method will launch a container to run the E2E tests of the fiware-murano component, previously you should launch or configure a FIWARE Lab access. You have to define the following environment variables:
 
@@ -67,14 +67,14 @@ Now is time to execute the container. This time, we take advantage of the docker
 Please keep in mind that if you do not change the name of the image it will automatically create a new one for acceptance tests and change the previous one to tag none.
 
 ----
-## 4. Other info
+## 3. Other info
 
 Things to keep in mind while working with docker containers and fiware-murano.
 
-### 4.1 Data persistence
+### 3.1 Data persistence
 Everything you do with fiware-murano when dockerized is non-persistent. *You will lose all your data* if you turn off the fiware-murano container. This will happen with either method presented in this README.
 
-### 4.2 Using `sudo`
+### 3.2 Using `sudo`
 
 If you do not want to have to use `sudo` follow [these instructions](http://askubuntu.com/questions/477551/how-can-i-use-docker-without-sudo).
    
