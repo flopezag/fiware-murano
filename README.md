@@ -1,6 +1,6 @@
 #<a name="top"></a>FIWARE Application Manager GE: Murano
 
-[![License badge](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](https://opensource.org/licenses/AGPL-3.0)
+[![License badge](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](LICENSE)
 [![Documentation badge](https://readthedocs.org/projects/fiware-murano/badge/?version=latest)](http://fiware-murano.readthedocs.org/en/latest/?badge=latest)
 [![Docker badge](https://img.shields.io/docker/pulls/fiware/murano.svg)](https://hub.docker.com/r/fiware/murano/)
 [![Support badge]( https://img.shields.io/badge/support-sof-yellowgreen.svg)](http://stackoverflow.com/questions/tagged/fiware-murano)
@@ -93,7 +93,7 @@ All Murano services have tempest-based automated tests, which allow to verify AP
 * [Development Guidelines](http://docs.openstack.org/developer/murano/guidelines.html)
 * [Contribution guidelines](http://docs.openstack.org/developer/murano/contributing.html), especially important if you plan to contribute with code
   to OpenStack Murano.
-* [Murano TroubleShooting and Debug Tips¶](http://docs.openstack.org/developer/murano/articles/debug_tips.html)
+* [Murano TroubleShooting and Debug Tips](http://docs.openstack.org/developer/murano/articles/debug_tips.html)
 
 [Top](#top)
 
