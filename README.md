@@ -10,11 +10,11 @@
 * [Build and Install](#build-and-install)
 * [API Overview](#api-overview)
 * [Testing](#testing)
-    * [Ent-to-end tests](#ent-to-end-tests)
     * [Unit Tests](#unit-tests)
+    * [Ent-to-end tests](#ent-to-end-tests)
 * [Advanced topics](#advanced-topics)
-* [License](#license)
 * [Support](#support)
+* [License](#license)
 
 ## Introduction
 
@@ -42,11 +42,11 @@ FIWARE Murano, keep the specific configuration of OpenStack Murano to be applied
 
 ### Installing OpenStack Murano
 
-If you planned to install Murano from the OpenStack you can follow the oficial [OpenStack Murano Installation Guide](http://docs.openstack.org/developer/murano/install/index.html)
+If you planned to install Murano from the OpenStack you can follow the oficial [OpenStack Murano Installation Guide](http://murano.readthedocs.io/en/stable-liberty/install/index.html)
 
 ### Installing using dockers
 
-It is possible deploy all Murano components following the indications of this repository. Please take a look into * [Docker management with Murano](docker/Readme.md) for more details.
+It is possible deploy all Murano components following the indications of this repository. Please take a look into * [Docker management with Murano](docker/README.md) for more details.
 
 #### Requirements
 
@@ -81,19 +81,20 @@ The murano service API is a programmatic interface used for interaction with mur
 Murano has a suite of tests that are run on all submitted code, and it is recommended that developers execute the tests themselves to catch regressions early. Developers are also expected to keep the test suite up-to-date with any submitted code changes. See [Murano Unit Tests](http://docs.openstack.org/developer/murano/guidelines.html#testing-guidelines) for more details.
 
 ### End-to-end tests
-All Murano services have tempest-based automated tests, which allow to verify API interfaces and deployment scenarios. See [Murano automated tests tempest tests](http://docs.openstack.org/developer/murano/articles/test_docs.html#murano-automated-tests-tempest-tests) for more details.
+All Murano services have tempest-based automated tests, which allow to verify API interfaces and deployment scenarios. See [Murano automated tests tempest tests](http://murano.readthedocs.io/en/stable-liberty/articles/test_docs.html#murano-automated-tests-tempest-tests) for more details.
 
 [Top](#top)
 
 ## Advanced topics
 
-* [Murano workflow](http://docs.openstack.org/developer/murano/articles/workflow.html)
+* [Welcome to Murano Documentation](http://murano.readthedocs.io/en/stable-liberty/)
+* [Murano workflow](http://murano.readthedocs.io/en/stable-liberty/articles/workflow.html)
 * Container-based deployment
   * [Docker](docker/README.md)
-* [Development Guidelines](http://docs.openstack.org/developer/murano/guidelines.html)
-* [Contribution guidelines](http://docs.openstack.org/developer/murano/contributing.html), especially important if you plan to contribute with code
+* [Development Guidelines](http://murano.readthedocs.io/en/stable-liberty/guidelines.html)
+* [Contribution guidelines](http://murano.readthedocs.io/en/stable-liberty/contributing.html), especially important if you plan to contribute with code
   to OpenStack Murano.
-* [Murano TroubleShooting and Debug Tips](http://docs.openstack.org/developer/murano/articles/debug_tips.html)
+* [Murano TroubleShooting and Debug Tips](http://murano.readthedocs.io/en/stable-liberty/articles/debug_tips.html)
 
 [Top](#top)
 
