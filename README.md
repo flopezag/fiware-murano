@@ -11,7 +11,7 @@
 * [API Overview](#api-overview)
 * [Testing](#testing)
     * [Unit Tests](#unit-tests)
-    * [Ent-to-end tests](#end-to-end-tests)
+    * [End-to-end tests](#end-to-end-tests)
 * [Advanced topics](#advanced-topics)
 * [Support](#support)
 * [License](#license)
