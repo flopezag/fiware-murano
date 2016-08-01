@@ -3,7 +3,7 @@ site_url: https://fiware-murano.readthedocs.org
 repo_url: https://github.com/telefonicaid/fiware-murano.git
 site_description: FIWARE Murano Documentation
 site_dir: html
-docs_dir: .
+docs_dir: /
 markdown_extensions: [toc,fenced_code]
 use_directory_urls: false
 theme: readthedocs
