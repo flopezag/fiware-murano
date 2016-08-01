@@ -11,10 +11,11 @@
 * [API Overview](#api-overview)
 * [Testing](#testing)
     * [Unit Tests](#unit-tests)
-    * [Ent-to-end tests](#ent-to-end-tests)
+    * [Ent-to-end tests](#end-to-end-tests)
 * [Advanced topics](#advanced-topics)
 * [Support](#support)
 * [License](#license)
+
 
 ## Introduction
 
@@ -46,7 +47,7 @@ If you planned to install Murano from the OpenStack you can follow the oficial [
 
 ### Installing using dockers
 
-It is possible deploy all Murano components following the indications of this repository. Please take a look into * [Docker management with Murano](docker/README.md) for more details.
+It is possible deploy all Murano components following the indications of this repository. Please take a look into [Docker management with Murano](https://github.com/telefonicaid/fiware-murano/blob/develop/docker/README.md) for more details.
 
 #### Requirements
 
