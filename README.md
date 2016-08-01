@@ -69,6 +69,12 @@ It is possible deploy all Murano components following the indications of this re
 
 [Top](#top)
 
+## API Overview
+
+The murano service API is a programmatic interface used for interaction with murano. You can obtain more details about it in the following page [OpenStack Murano API](http://docs.openstack.org/developer/murano/specification/index.html).
+
+[Top](#top)
+
 ## Testing
 
 ### Unit tests
@@ -79,9 +85,15 @@ All Murano services have tempest-based automated tests, which allow to verify AP
 
 [Top](#top)
 
-## API Overview
+## Advanced topics
 
-The murano service API is a programmatic interface used for interaction with murano. You can obtain more details about it in the following page [OpenStack Murano API](http://docs.openstack.org/developer/murano/specification/index.html).
+* [Murano workflow](http://docs.openstack.org/developer/murano/articles/workflow.html)
+* Container-based deployment
+  * [Docker](docker/README.md)
+* [Development Guidelines](http://docs.openstack.org/developer/murano/guidelines.html)
+* [Contribution guidelines](http://docs.openstack.org/developer/murano/contributing.html), especially important if you plan to contribute with code
+  to OpenStack Murano.
+* [Murano TroubleShooting and Debug Tips¶](http://docs.openstack.org/developer/murano/articles/debug_tips.html)
 
 [Top](#top)
 
