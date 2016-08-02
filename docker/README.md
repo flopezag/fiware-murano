@@ -35,7 +35,7 @@ Check that everything works with
 
 	curl <IP address of a machine>:8082
 
-You can obtain the IP address of the machine just executing `docker-machine ip`. What you have done with this method is the creation of the [fiware-murano](https://hub.docker.com/r/fiware/fiware-murano/) image from the public repository of images called [Docker Hub](https://hub.docker.com/).
+You can obtain the IP address of the machine just executing `docker-machine ip`. What you have done with this method is the creation of the [fiware-murano](https://hub.docker.com/r/fiware/murano/) image from the public repository of images called [Docker Hub](https://hub.docker.com/).
 
 If you want to stop the scenario you have to execute `docker ps` and you see something like this:
 
