@@ -1,13 +1,12 @@
-=======================================
- Installation and Administration Guide
-=======================================
+
+# Installation and Administration Guide
 
 ## Introduction
 
 This guide defines the procedure to install the different components that build
 up the FIWARE Murano GE,
 
-For general information, please refer to GitHub's README_.
+For general information, please refer to GitHub's [README](https://github.com/telefonicaid/fiware-murano/blob/master/README.md).
 
 ## Installing OpenStack Murano
 
@@ -52,8 +51,4 @@ Finally, we execute the commando package-import for the murano client library (c
     --os-tenant-name admin --os-auth-url=http://cloud.lab.fi-ware.org:4730/v2.0 \
     package-import --exists-action u  --is-public io.murano.zip
 
-
-.. REFERENCES
-
-.. _README: https://github.com/telefonicaid/fiware-murano/blob/master/README.rst
 
