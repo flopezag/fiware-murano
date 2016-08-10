@@ -11,4 +11,6 @@ index_page: [index.md, README.md]
 extra_css: ["https://fiware.org/style/fiware_readthedocs.css"]
 pages:
   - ['index.md', 'Welcome to FIWARE Murano']
-  - ['docker.md', 'Working with Docker']
+  - ['admin.md', 'FIWARE Murano Admin Guide']
+  - ['user.md', 'Working with Docker']
+  - ['docker.md', 'FIWARE Murano User Guide']
