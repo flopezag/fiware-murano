@@ -50,10 +50,10 @@ If you planned to install Murano from the OpenStack you can follow the oficial [
 
 In addition to the oficial Murano documentation, to be FIWARE Murano aware, we need to install some extensions to Murano core library.
 It involves mainly the addition of:
- * the FiwareMuranoInstance instance: this is a Murano instance which includes the region and the GE NID (in case required) in the deployed VMs. This is
+-   the FiwareMuranoInstance instance: this is a Murano instance which includes the region and the GE NID (in case required) in the deployed VMs. This is
  required for FIWARE monitoring.
- * the script key: There is a support script which includes a support key to be used by region administrators to give support to users.
- * the murano agent configuration file: It includes different murano-agent configuration files for services to be included in the different
+-   the script key: There is a support script which includes a support key to be used by region administrators to give support to users.
+-   the murano agent configuration file: It includes different murano-agent configuration files for services to be included in the different
   linux distributions.
 
 Then, we need to include this instance in the Murano library manifest.yaml. Go to murano folder and execute:
