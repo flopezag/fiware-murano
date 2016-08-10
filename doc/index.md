@@ -23,5 +23,5 @@ FIWARE Murano source code can be found [here](https://github.com/telefonicaid/fi
 ## Documentation
 
 GitHub's [README](https://github.com/telefonicaid/fiware-murano/blob/master/README.rst) provides a good documentation summary.
-The [User Manual](user/index.md) and the [Admin Guide](admin/index.md) cover more advanced topics.
+The [User Manual](manuals/user/index.md) and the [Admin Guide](manuals/admin/index.md) cover more advanced topics.
 
