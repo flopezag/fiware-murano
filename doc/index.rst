@@ -40,10 +40,6 @@ __ `FIWARE Murano GitHub README`_
    manuals/admin/index
 
 
-See also
-========
-
-
 .. REFERENCES
 
 .. _FIWARE Murano GitHub Repository: https://github.com/telefonicaid/fiware-murano.git
