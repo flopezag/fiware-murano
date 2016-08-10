@@ -2,22 +2,20 @@
  Installation and Administration Guide
 =======================================
 
-Introduction
-============
+## Introduction
 
 This guide defines the procedure to install the different components that build
 up the FIWARE Murano GE,
 
 For general information, please refer to GitHub's README_.
 
-Installing OpenStack Murano
-===========================
+## Installing OpenStack Murano
+
 If you planned to install Murano from the OpenStack you can follow the oficial
 [OpenStack Murano Installation Guide](http://murano.readthedocs.io/en/stable-liberty/install/index.html)
 
 
-Installing FIWARE Murano specific requirements
-==============================================
+## Installing FIWARE Murano specific requirements
 
 In addition to the oficial Murano documentation, to be FIWARE Murano aware, we need to install some extensions to Murano core library.
 It involves mainly the addition of:
