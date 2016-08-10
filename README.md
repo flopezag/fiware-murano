@@ -1,6 +1,21 @@
-==========================
- Welcome to FIWARE Murano
-==========================
+#<a name="top"></a>FIWARE Application Manager GE: Murano
+
+[![License badge](https://img.shields.io/badge/license-Apache_2.0-blue.svg)](LICENSE)
+[![Documentation badge](https://readthedocs.org/projects/fiware-murano/badge/?version=latest)](http://fiware-murano.readthedocs.org/en/latest/?badge=latest)
+[![Docker badge](https://img.shields.io/docker/pulls/fiware/murano.svg)](https://hub.docker.com/r/fiware/murano/)
+[![Support badge]( https://img.shields.io/badge/support-sof-yellowgreen.svg)](http://stackoverflow.com/questions/tagged/fiware-murano)
+
+* [Introduction](#introduction)
+* [GEi overall description](#gei-overall-description)
+* [Build and Install](#build-and-install)
+* [API Overview](#api-overview)
+* [Testing](#testing)
+    * [Unit Tests](#unit-tests)
+    * [End-to-end tests](#end-to-end-tests)
+* [Advanced topics](#advanced-topics)
+* [Support](#support)
+* [License](#license)
+
 
 ## Introduction
 
