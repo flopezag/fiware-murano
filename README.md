@@ -44,29 +44,32 @@ FIWARE Murano, keep the specific configuration of OpenStack Murano to be applied
 ### Installing OpenStack Murano
 
 If you planned to install Murano from the OpenStack you can follow the oficial [OpenStack Murano Installation Guide](http://murano.readthedocs.io/en/stable-liberty/install/index.html)
+In addition, to be FIWARE Murano aware, we need to install some extensions to Murano core library. It involves mainly the addition of:
+ - the FiwareMuranoInstance instance: this is a Murano instance which includes the region and the GE NID (in case required) in the deployed VMs.
+ - the script support:
+ - murano agent service for several linux distribution:
 
-### Installing using dockers
+Then, we need to include this instance in the Murano library manifest.yaml. Go to murano folder and execute:
+    $  echo "  io.murano.resources.FiwareMuranoInstance: resources/FiwareMuranoInstance.yaml" >> meta/io.murano/manifest.yaml
 
-It is possible deploy all Murano components following the indications of this repository. Please take a look into [Docker management with Murano](https://github.com/telefonicaid/fiware-murano/blob/develop/docker/README.md) for more details.
+To add the new information, wee need to copy it into the murano official meta folder.  We assume that {murano_folder} is the folder where
+Openstack murano has been deployed
+    $ git clone https://github.com/telefonicaid/fiware-murano {murano_folder}
+    $ cp -rf /opt/fiware-murano/meta {murano_folder}
 
-#### Requirements
+Also we need to add the FIWAREMuranoInstance to the manifest core library
+    $ echo "  io.murano.resources.FiwareMuranoInstance: resources/FiwareMuranoInstance.yaml" >> meta/io.murano/manifest.yaml
 
-- Install [compose](http://docs.docker.com/compose/install/)
+We create a zip file
+    $ cd  {murano_folder}/meta/io.murano
+    $ zip -r ../../io.murano.zip *
+    $ cd ./../../
 
-#### How to create murano image
+Finally, we execute the commando package-import for the murano client library (cosidering we are configuring murano agains FIWARE Lab)
+    $ tox -e venv -- murano --murano-url http://localhost:8082 --os-username admin --os-password $PASSWORD \
+    --os-tenant-name admin --os-auth-url=http://cloud.lab.fi-ware.org:4730/v2.0 \
+    package-import --exists-action u  --is-public io.murano.zip
 
-    $ cd fiwaremurano
-    $ docker build -t fiware-murano .
-    
-#### How to create murano-dashboard image
-
-    $ cd dashboard
-    $ docker build -t murano-dashboard .
-    
-#### Start containers using docker-compose:
-
-    $ export PASSWORD=<openstack admin password>
-    $ docker-compose -f docker-compose-dashboard.yml up
 
 [Top](#top)
 
