@@ -57,10 +57,6 @@ It involves mainly the addition of:
 -   the murano agent configuration file: It includes different murano-agent configuration files for services to be included in the different
   linux distributions.
 
-Then, we need to include this instance in the Murano library manifest.yaml. Go to murano folder and execute:
-
-    $  echo "  io.murano.resources.FiwareMuranoInstance: resources/FiwareMuranoInstance.yaml" >> meta/io.murano/manifest.yaml
-
 To add the new information, wee need to copy it into the murano official meta folder.  We assume that {murano_folder} is the folder where
 Openstack murano has been deployed
 

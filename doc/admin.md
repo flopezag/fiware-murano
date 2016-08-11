@@ -25,10 +25,6 @@ It involves mainly the addition of:
 -   the murano agent configuration file: It includes different murano-agent configuration files for services to be included in the different
   linux distributions.
 
-Then, we need to include this instance in the Murano library manifest.yaml. Go to murano folder and execute:
-
-    $  echo "  io.murano.resources.FiwareMuranoInstance: resources/FiwareMuranoInstance.yaml" >> meta/io.murano/manifest.yaml
-
 To add the new information, wee need to copy it into the murano official meta folder.  We assume that {murano_folder} is the folder where
 Openstack murano has been deployed
 
@@ -45,10 +41,12 @@ We create a zip file
     $ zip -r ../../io.murano.zip *
     $ cd ./../../
 
-Finally, we execute the commando package-import for the murano client library (cosidering we are configuring murano agains FIWARE Lab)
+Finally, we execute the commando package-import for the murano client library (cosidering we are configuring Murano agains FIWARE Lab)
 
     $ tox -e venv -- murano --murano-url http://localhost:8082 --os-username admin --os-password $PASSWORD \
     --os-tenant-name admin --os-auth-url=http://cloud.lab.fi-ware.org:4730/v2.0 \
     package-import --exists-action u  --is-public io.murano.zip
+
+It will update the Murano core library with the new FIWARE extensions.
 
 
