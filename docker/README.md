@@ -31,7 +31,7 @@ After a few seconds you should have your fiware-murano image created. Just run t
 
 Fiware-murano image needs the PASSWORD variable to be defined. In addition, it needs the docker mysql and rabbitmq alredy deployed.
 Thus, to deploy the contanair we need
-to execute the command `docker run -p 8082:8082 -e PASSWORD=$PASSWORD -l rabbit -l mysql-d fiware-murano`. It will launch the fiware-murano service
+to execute the command `docker run -p 8082:8082 -e PASSWORD=$PASSWORD --link rabbit --link mysql -d fiware-murano`. It will launch the fiware-murano service
 listening on port `8082`, which is linked to mysql and rabbitmq dockers and which has the environment variable password required for configuring murano.
 
 To check that the service is running correcly, just do
