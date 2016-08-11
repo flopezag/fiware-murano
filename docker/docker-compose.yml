@@ -21,10 +21,4 @@ murano:
   environment: 
    - PASSWORD
    - REVISION
-murano-test:
-  image: murano-test
-  links:
-   - murano
-  environment:
-   - PASSWORD
-   - REVISION
+
