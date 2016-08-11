@@ -5,6 +5,16 @@ import os
 # The paths that contain custom static files (such as style sheets).
 html_static_path = ['_static']
 
+# HTML configuration
+html_title = project
+html_show_copyright = False
+
+# Custom sidebar templates
+html_sidebars = {
+    '**': ['globaltoc.html', 'sourcelink.html', 'searchbox.html'],
+    'using/windows': ['windowssidebar.html', 'searchbox.html'],
+}
+
 # Check whether we are on readthedocs.org
 on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
 
