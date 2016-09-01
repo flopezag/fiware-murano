@@ -14,4 +14,4 @@ RUN pip install -r requirements.txt; pip install nose tempest-lib;  python setup
 WORKDIR /opt/murano
 COPY start.sh /opt/murano/start.sh
 COPY tempest.conf /etc/tempest/tempest.conf
-CMD ./start.sh; nosetests --with-xunit --xunit-file /opt/test1.xml murano.tests.functional.api.v1
+CMD ./start.sh; nosetests --with-xunit --xunit-file /opt/test1.xml murano.tests.unit.api.v1
