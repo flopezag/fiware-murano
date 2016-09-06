@@ -96,8 +96,6 @@ After it, we can check if Murano is up and running with a
 single instruction which is used to return the information of the status
 of the processes together with the queue size.
 
-::
-
     curl -v -H 'X-Auth-Token: a9a861db6276414094bc1567f664084d'
     -X GET http://murano.lab.fiware.org:8082
 
@@ -137,20 +135,22 @@ the list of processes must be only tox process for murano-api and murano-engine:
 
 It should show something similar to the following:
 
-   UID        PID  PPID  C STIME TTY          TIME CMD
-   root       739     5  0 10:50 ?        00:00:00 /usr/bin/python /usr/local/bin/tox -e venv -- murano-api --config-file ./etc/murano/murano.conf
-   root       762   739  0 10:50 ?        00:00:02 /opt/murano/.tox/venv/bin/python .tox/venv/bin/murano-api --config-file etc/murano/murano.conf
-   root       800     5  0 10:50 ?        00:00:00 /usr/bin/python /usr/local/bin/tox -e venv -- murano-engine --config-file ./etc/murano/murano.conf
-   root       821   800  0 10:50 ?        00:00:02 /opt/murano/.tox/venv/bin/python .tox/venv/bin/murano-engine --config-file etc/murano/murano.conf
+
+    UID        PID  PPID  C STIME TTY          TIME CMD
+    root       739     5  0 10:50 ?        00:00:00 /usr/bin/python /usr/local/bin/tox -e venv -- murano-api --config-file ./etc/murano/murano.conf
+    root       762   739  0 10:50 ?        00:00:02 /opt/murano/.tox/venv/bin/python .tox/venv/bin/murano-api --config-file etc/murano/murano.conf
+    root       800     5  0 10:50 ?        00:00:00 /usr/bin/python /usr/local/bin/tox -e venv -- murano-engine --config-file ./etc/murano/murano.conf
+    root       821   800  0 10:50 ?        00:00:02 /opt/murano/.tox/venv/bin/python .tox/venv/bin/murano-engine --config-file etc/murano/murano.conf
 
 In addition, mysql and rabbitmq process should be exist (or in the same server or in another one, according to configuration).
 
-   UID        PID  PPID  C STIME TTY          TIME CMD
-   mysql        1     0  0 10:47 ?        00:00:00 mysqld
 
-   rabbitmq     1     0  0 10:47 ?        00:00:00 /bin/sh -e /usr/lib/rabbitmq/bin/rabbitmq-server
-   rabbitmq    85     1  0 10:47 ?        00:00:00 /usr/lib/erlang/erts-7.2/bin/epmd -daemon
-   rabbitmq    98     1  0 10:47 ?        00:00:01 /usr/lib/erlang/erts-7.2/bin/beam -W w -A 64 -P 1048576 -K true -B i -- -root /usr/lib/erlang -progname erl -- -home /var/lib/rabbitmq -- -pa /usr/lib/rabbitm
+    UID        PID  PPID  C STIME TTY          TIME CMD
+    mysql        1     0  0 10:47 ?        00:00:00 mysqld
+
+    rabbitmq     1     0  0 10:47 ?        00:00:00 /bin/sh -e /usr/lib/rabbitmq/bin/rabbitmq-server
+    rabbitmq    85     1  0 10:47 ?        00:00:00 /usr/lib/erlang/erts-7.2/bin/epmd -daemon
+    rabbitmq    98     1  0 10:47 ?        00:00:01 /usr/lib/erlang/erts-7.2/bin/beam -W w -A 64 -P 1048576 -K true -B i -- -root /usr/lib/erlang -progname erl -- -home /var/lib/rabbitmq -- -pa /usr/lib/rabbitm
 
 
 ### Network interfaces Up & Open
@@ -247,7 +247,7 @@ The resource availability in the node should be at least 2Gb of RAM and
 nodes. This means that bellow these thresholds the enabler is likely to
 experience problems or bad performance.
 
-####  Remote Service Access
+###  Remote Service Access
 
 We have internally two components to connect, the API and the engine (besides the database manager and the
 message bus). After that two internals component, we
@@ -316,73 +316,6 @@ uploaded. In case we have not upload anyone, it will just show the core library:
 
 ### Resource consumption
 
-The results were obtained with a top command execution over the following machine configuration:
-
-.. list-table:: Machine Info
-   :header-rows: 1
-   :widths: 10 10 10
-   :stub-columns: 1
-
-   *  -  Machine
-      -  Rule Engine Node
-      -  Facts Engine Node
-   *  -  Type Machine
-      -  Virtual Machine
-      -  Virtual Machine
-   *  -  CPU
-      -  1 core @ 2,4Ghz
-      -  Intel(R) Xeon(R) CPU X5650 Dual Core @ 2.67GHz
-   *  -  RAM
-      -  2GB
-      -  2GB
-   *  -  HDD
-      -  20GB
-      -  20GB
-   *  -  Operating System
-      -  CentOS 6.5
-      -  CentOS 6.5
-
-The results of requirements both RAM, CPU and I/O to HDD in case of
-Rule engine node is shown in the following table:
-
-.. list-table:: Resource Consumption (in JBoss node)
-   :header-rows: 1
-   :widths: 10 10 10
-   :stub-columns: 1
-
-   *  -  Characteristic
-      -  Low Usage
-      -  High Usage
-   *  -  RAM
-      -  1,2GB ~ 70%
-      -  1,4GB ~ 83,5%
-   *  -  CPU
-      -  1,3% of a 2400MHz
-      -  95% of a 2400MHZ
-   *  -  I/O HDD
-      -  6GB
-      -  6GB
-
-And the results of requirements both RAM, CPU and I/O to HDD in case
-of Tomcat node is shown in the following table:
-
-.. list-table:: Resource Consumption (in Tomcat node)
-   :header-rows: 1
-   :widths: 10 10 10
-   :stub-columns: 1
-
-   *  -  Characteristic
-      -  Low Usage
-      -  High Usage
-   *  -  RAM
-      -  1,2GB ~ 63%
-      -  1,5GB ~ 78%
-   *  -  CPU
-      -  0,8% of a 2400MHz
-      -  90% of a 2400MHZ
-   *  -  I/O HDD
-      -  6GB
-      -  6GB
 
 ### I/O flows
 
