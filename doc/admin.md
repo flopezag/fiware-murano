@@ -73,8 +73,6 @@ it is needed to provide a security token in order to continue with the
 rest of operations. For this operation we need to execute the following
 curl sentence.
 
-::
-
     curl -d '{"auth": {"tenantName": $TENANT,
     "passwordCredentials":{"username": $USERNAME, "password": $PASSWORD}}}'
     -H "Content-type: application/json" -H "Accept: application/xml"
@@ -88,13 +86,9 @@ We obtained two data from the previous sentence:
 
 -  X-Auth-Token
 
-::
-
     <token expires="2012-10-25T16:35:42Z" id="a9a861db6276414094bc1567f664084d">
 
 -  Tenant-Id
-
-::
 
     <tenant enabled="true" id="c907498615b7456a9513500fe24101e0" name=$TENANT>
 
@@ -109,8 +103,6 @@ of the processes together with the queue size.
 
 This operation will return the information regarding the tenant details
 of the execution of the Policy Manager
-
-::
 
     < HTTP/1.0 200 OK
     < Date: Wed, 09 Apr 2014 08:25:17 GMT
@@ -136,19 +128,14 @@ of the execution of the Policy Manager
 
 For more details to use this GE, please refer to the User & Programmers Guide.
 
-List of Running Processes
--------------------------
+### List of Running Processes
 
 Due to the Murano basically is running over the python process by using tox,
 the list of processes must be only tox process for murano-api and murano-engine:
 
-::
-
     ps -ewf | grep 'tox' | grep -v grep
 
 It should show something similar to the following:
-
-::
 
    UID        PID  PPID  C STIME TTY          TIME CMD
    root       739     5  0 10:50 ?        00:00:00 /usr/bin/python /usr/local/bin/tox -e venv -- murano-api --config-file ./etc/murano/murano.conf
@@ -158,8 +145,6 @@ It should show something similar to the following:
 
 In addition, mysql and rabbitmq process should be exist (or in the same server or in another one, according to configuration).
 
-::
-
    UID        PID  PPID  C STIME TTY          TIME CMD
    mysql        1     0  0 10:47 ?        00:00:00 mysqld
 
@@ -168,15 +153,12 @@ In addition, mysql and rabbitmq process should be exist (or in the same server o
    rabbitmq    98     1  0 10:47 ?        00:00:01 /usr/lib/erlang/erts-7.2/bin/beam -W w -A 64 -P 1048576 -K true -B i -- -root /usr/lib/erlang -progname erl -- -home /var/lib/rabbitmq -- -pa /usr/lib/rabbitm
 
 
-Network interfaces Up & Open
-----------------------------
+### Network interfaces Up & Open
 
 Taking into account the results of the ps commands in the previous
 section, we take the PID in order to know the information about the
 network interfaces up & open. To check the ports in use and listening,
 execute the command:
-
-::
 
     lsof -i | grep "$PID1\|$PID2"
 
@@ -184,8 +166,6 @@ Where $PID1 and $PID2 are the PIDs of the tox processes obtained
 at the ps command described before, in the previous case 762 and 821
 (redis-server) and 5604 (Python). The expected results must be something
 similar to the following:
-
-::
 
     COMMAND   PID USER    FD  TYPE DEVICE  SIZE/OFF NODE NAME
     murano-ap 762 root    4u  IPv4 791813      0t0  TCP ac7d13082086:48456->rabbit:amqp (ESTABLISHED)
@@ -196,22 +176,18 @@ similar to the following:
     murano-en 821 root    4u  IPv4 792083      0t0  TCP ac7d13082086:48475->rabbit:amqp (ESTABLISHED)
 
 
-Databases
----------
+### Databases
+
 
 The last step in the sanity check, once that we have identified the
 processes and ports is to check the database that have to be up and
 accept queries. For the first one, if we execute the following commands
 inside the code of the rule engine server:
 
-::
-
     $ mysql -h mysqlhost -u user -p
 
 Where user is the administration user defined for murano database. The previous
 command should ask you for the password and after that show you:
-
-::
 
     Welcome to the MySQL monitor.  Commands end with ; or \g.
     Your MySQL connection id is 155286
@@ -228,8 +204,6 @@ command should ask you for the password and after that show you:
 
 In order to show the different tables contained in this database, we
 should execute the following commands with the result that we show here:
-
-::
 
     mysql> show tables from murano;
     +----------------------+
@@ -267,15 +241,13 @@ the exact point of error and a possible solution. Such specific testing
 is out of the scope of this section.
 
 ### Resource availability
----------------------
 
 The resource availability in the node should be at least 2Gb of RAM and
 8GB of Hard disk in order to prevent enabler’s bad performance in both
 nodes. This means that bellow these thresholds the enabler is likely to
 experience problems or bad performance.
 
-Remote Service Access
----------------------
+####  Remote Service Access
 
 We have internally two components to connect, the API and the engine (besides the database manager and the
 message bus). After that two internals component, we
@@ -286,8 +258,6 @@ The first step is to check that the api is up and running, for
 this purpose we can execute the following curl command, which is a
 simple GET operation:
 
-::
-
     root@fiware:~# curl http://$IP:$PORT/v1.0
 
 The variable will be the IP direction in which we have installed the murano service. This request should return the status of the server if it
@@ -297,8 +267,6 @@ is working properly.
 In order to check the connectivity between the rule engine and the IdM
 GE, due to it must obtain a valid token and tenant for a user and
 organization with the following curl commands:
-
-::
 
     root@fiware:~# curl
     -d '{"auth": {"tenantName": "<MY_ORG_NAME>",
@@ -312,8 +280,6 @@ password predefined in the IdM GE and finally the and variables will be
 the IP direction and port in which we can find the IdM GE (aka
 Keystone). This request should return one valid token for the user
 credentials together with more information in a xml format:
-
-::
 
     <?xml version="1.0" encoding="UTF-8"?>
     <access xmlns="http://docs.openstack.org/identity/api/v2.0">
@@ -334,16 +300,12 @@ With this information (extracting the token id), we can perform a GET
 operation to Murano service to check that the database is working. For this purpose we can execute
 the following curl commands:
 
-::
-
     curl -v -H 'X-Auth-Token: a9a861db6276414094bc1567f664084d'
     -X GET "http://<I$P>:8082/v1/catalog/packages"
 
 The variable will be the IP direction in which we have installed the
 Rule engine API functionality. This request should return the packages already
 uploaded. In case we have not upload anyone, it will just show the core library:
-
-::
 
     {
         "packages":
@@ -352,8 +314,7 @@ uploaded. In case we have not upload anyone, it will just show the core library:
         ]
     }
 
-Resource consumption
---------------------
+### Resource consumption
 
 The results were obtained with a top command execution over the following machine configuration:
 
@@ -423,8 +384,7 @@ of Tomcat node is shown in the following table:
       -  6GB
       -  6GB
 
-I/O flows
----------
+### I/O flows
 
 The rule engine application is hearing from port 8082. Please refer to
 the installation process in order to know exactly which was the port
