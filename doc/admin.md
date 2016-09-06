@@ -182,7 +182,7 @@ similar to the following:
 The last step in the sanity check, once that we have identified the
 processes and ports is to check the database that have to be up and
 accept queries. For the first one, if we execute the following commands
-inside the code of the rule engine server:
+inside the code of Murano:
 
     $ mysql -h mysqlhost -u user -p
 
@@ -264,7 +264,7 @@ The variable will be the IP direction in which we have installed the murano serv
 is working properly.
 
 
-In order to check the connectivity between the rule engine and the IdM
+In order to check the connectivity between Murano and the IdM
 GE, due to it must obtain a valid token and tenant for a user and
 organization with the following curl commands:
 
@@ -304,7 +304,7 @@ the following curl commands:
     -X GET "http://<I$P>:8082/v1/catalog/packages"
 
 The variable will be the IP direction in which we have installed the
-Rule engine API functionality. This request should return the packages already
+Murano API functionality. This request should return the packages already
 uploaded. In case we have not upload anyone, it will just show the core library:
 
     {
@@ -320,7 +320,7 @@ No issues related to resources consumption have been detected.
 
 ### I/O flows
 
-The rule engine application is hearing from port 8082. Please refer to
+The murano api is hearing from port 8082. Please refer to
 the installation process in order to know exactly which was the port
 selected.
 
