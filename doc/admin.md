@@ -315,6 +315,7 @@ uploaded. In case we have not upload anyone, it will just show the core library:
     }
 
 ### Resource consumption
+No issues related to resources consumption have been detected.
 
 
 ### I/O flows
