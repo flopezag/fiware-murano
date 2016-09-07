@@ -339,7 +339,7 @@ I/O HDD          |     6GB            |   6GB
 
 ### I/O flows
 
-The Murano api is hearing from port 8082. Please refer to
+The Murano api is listening from port 8082. Please refer to
 the installation process in order to know exactly which was the port
 selected.
 
