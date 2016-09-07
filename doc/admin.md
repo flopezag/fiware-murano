@@ -72,12 +72,7 @@ curl sentence.
 
 Both $TENANT (Project), $USERNAME and $PASSWORD must be values
 previously created in the OpenStack Keystone. The $KEYSTONE_IP and $KEYSTONE_PORT are the data of our internal
-installation of Keystone.
-
-We obtained two data from the previous sentence:
-
--  X-Auth-Token
-
+installation of Keystone. Thus we will obtain the token ID.
 
     {
         "token":
@@ -91,20 +86,6 @@ We obtained two data from the previous sentence:
            },
     }
 
-
--  Tenant-Id
-
-
-    {
-        "tenant":
-        {
-            "is_cloud_project": true,
-            "description": "This organization is intended ..",
-            "enabled": true,
-            "id": "00000000000000000000000000000081",
-            "name": "henar cloud"
-        },
-    }
 
 After it, we can check if Murano is up and running with a
 single instruction which is used to return the information of the status
