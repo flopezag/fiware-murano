@@ -168,13 +168,12 @@ In addition, mysql and rabbitmq process should be exist (or in the same server o
 Taking into account the results of the ps commands in the previous
 section, we take the PID in order to know the information about the
 network interfaces up & open. To check the ports in use and listening,
-execute the command:
+execute the following command, where $PID1 and $PID2 are the PIDs of the tox processes obtained
+at the ps command described before, in the previous case 762 and 821 :
 
     lsof -i | grep "$PID1\|$PID2"
 
-Where $PID1 and $PID2 are the PIDs of the tox processes obtained
-at the ps command described before, in the previous case 762 and 821. The expected results must be something
-similar to the following:
+The expected results must be something similar to the following:
 
     COMMAND   PID USER    FD  TYPE DEVICE  SIZE/OFF NODE NAME
     murano-ap 762 root    4u  IPv4 791813      0t0  TCP ac7d13082086:48456->rabbit:amqp (ESTABLISHED)
@@ -333,7 +332,7 @@ applies to RAM, CPU and I/O. For this purpose we have differentiated
 between:
 
 -  Low usage, or usage with a low number of requests.
--  High usage, in which we send 100 concurrent accesses.
+-  High usage, in which we send several concurrent accesses.
 
 The results were obtained with a top command execution over the following machine configuration:
 
@@ -349,15 +348,15 @@ Operating System | CentOS 6.5
 
 The results of requirements both RAM, CPU and I/O to HDD is shown in the following table:
 
-Characteristic   |   Low Usage   | High usage
----------------  | ------------- | -------------
-RAM              |               |
-CPU              |               |
-I/O HDD          |               |
+Characteristic   |   Low Usage        | High usage
+---------------  | -----------------  | -------------
+RAM              |  0.995 GB ~ 49%    |  1,4GB ~ 83,5%
+CPU              |  3.1% of a 2400MHz | 80% of a 2400MHz
+I/O HDD          |     6GB            |   6GB
 
 ### I/O flows
 
-The murano api is hearing from port 8082. Please refer to
+The Murano api is hearing from port 8082. Please refer to
 the installation process in order to know exactly which was the port
 selected.
 
