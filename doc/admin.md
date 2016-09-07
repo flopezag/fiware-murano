@@ -78,6 +78,7 @@ We obtained two data from the previous sentence:
 
 -  X-Auth-Token
 
+
     {
         "token":
         {
@@ -92,6 +93,7 @@ We obtained two data from the previous sentence:
 
 
 -  Tenant-Id
+
 
     {
         "tenant":
