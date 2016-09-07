@@ -265,31 +265,31 @@ The configuration variables will be the name of my Organization/Tenant/Project p
 Keystone, as well as the IP direction and port of the Keystone. This request should return one valid token for the user
 credentials together with more information in a json format:
 
-   {
-       "access":
-       {
-           "token":
-           {
+
+    {
+         "access":
+         {
+            "token":
+            {
                "issued_at": "2016-09-07T08:58:03.528655",
                "expires": "2016-09-08T08:58:03Z",
                "id": "6795d72d732645f5847f5cbd22cc79d3",
-               "tenant":
-               {
-                  "id": "00000000000000000000000000000081",
-                  ...
-           },
-
-           "serviceCatalog":
-           [
-               {
-                   "endpoints":
-                   [
-                       ...
-                   ]
-               }
-           ]
-       }
-   }
+                "tenant":
+                {
+                   "id": "00000000000000000000000000000081",
+                   ...
+            },
+            "serviceCatalog":
+            [
+                {
+                    "endpoints":
+                    [
+                        ...
+                    ]
+                }
+            ]
+        }
+    }
 
 With this information (extracting the token id), we can perform a GET
 operation to Murano service to check that the database is working. For this purpose we can execute
