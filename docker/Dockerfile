@@ -1,5 +1,5 @@
 FROM ubuntu
-ENV GIT_REV_MURANO master
+ENV GIT_REV_MURANO stable/mitaka
 RUN apt-get update &&  apt-get -y install python-pip python-dev \
   libmysqlclient-dev libpq-dev \
   libxml2-dev libxslt1-dev git \
