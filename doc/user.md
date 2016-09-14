@@ -1,4 +1,4 @@
-# Murano User & Programmers Guide
+# FIWARE Murano - User & Programmer's Guide
 
 
 ## Introduction
