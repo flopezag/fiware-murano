@@ -30,4 +30,5 @@ details about it in the following page [OpenStack Murano API](http://docs.openst
 In Murano, each application, as well as the form of application data entry, is defined by its package.
 Murano allows you to import and manage packages as well as add applications from catalog to environments.
 In addition, it is possible create your own packages and include them into the catalog. The next link,
- [Step-by-Step Application Package Creation] (https://murano.readthedocs.io/en/stable-liberty/draft/appdev-guide/step_by_step.html), walks you through the steps that should be taken while composing an application package to get it ready for uploading to Murano.
+[Step-by-Step Application Package Creation] (https://murano.readthedocs.io/en/stable-liberty/draft/appdev-guide/step_by_step.html),
+walks you through the steps that should be taken while composing an application package to get it ready for uploading to Murano.
