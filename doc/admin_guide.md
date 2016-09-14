@@ -127,7 +127,7 @@ This operation will return the information about the API version in Murano.
     }
 
 
-For more details to use this GE, please refer to the [User & Programmers Guide] (https://murano.readthedocs.io).
+For more details to use this GE, please refer to the [User & Programmers Guide](https://murano.readthedocs.io).
 
 ### List of Running Processes
 
