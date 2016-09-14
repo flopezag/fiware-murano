@@ -57,6 +57,26 @@ It involves mainly the addition of:
 -   the murano agent configuration file: It includes different murano-agent configuration files for services to be included in the different
   linux distributions.
 
+##### Installing FIWARE Murano requirements by an script
+fiware-murano repository contains a script which installs all the FIWARE specific requirements. This script is in charge of:
+- creating the virtualenv
+- installing python dependences,
+- generating the core library zip file
+- uploading into murano instance
+
+To execute it, it is required to export admin credentials to access to the Cloud, where Murano is part of.
+
+    $ export OS_USERNAME='admin'
+    $ export OS_PASSWORD={the password for admin user}
+    $ export OS_TENANT_NAME="admin"
+    $ export OS_REGION_NAME={the region}
+    $ export OS_AUTH_URL={the auth url for keystone}
+
+Then, just go to folder scripts and execute the script:
+    $ cd scripts
+    $ ./upload_fiware_things.sh
+
+##### Installing FIWARE Murano requirements manually
 To add the new information, wee need to copy it into the murano official meta folder.  We assume that {murano_folder} is the folder where
 Openstack murano has been deployed
 
