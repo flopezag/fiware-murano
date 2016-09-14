@@ -27,4 +27,9 @@ Both are not part of this GE.
 The Murano service API is a programmatic interface used for interaction with Murano. You can obtain more
 details about it in the following page [OpenStack Murano API](http://docs.openstack.org/developer/murano/specification/index.html).
 
-It is important to remark the [following guide] (https://murano.readthedocs.io/en/stable-liberty/draft/appdev-guide/step_by_step.html) for uploading packages into Murano.
+In Murano, each application, as well as the form of application data entry, is defined by its package.
+Murano allows you to import and manage packages as well as add applications from catalog to environments.
+In addition, it is possible create your own packages and include them into the catalog. The next link,
+[Step-by-Step Application Package Creation] (https://murano.readthedocs.io/en/stable-liberty/draft/appdev-guide/step_by_step.html),
+walks you through the steps that should be taken while composing an application package to get it ready for uploading to Murano.
+
