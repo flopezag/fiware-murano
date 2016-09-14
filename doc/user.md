@@ -1,4 +1,4 @@
-# User & Programmers Guide
+# Murano User & Programmers Guide
 
 
 ## Introduction
@@ -26,3 +26,5 @@ Both are not part of this GE.
 
 The Murano service API is a programmatic interface used for interaction with Murano. You can obtain more
 details about it in the following page [OpenStack Murano API](http://docs.openstack.org/developer/murano/specification/index.html).
+
+It is important to remark the [following guide] (https://murano.readthedocs.io/en/stable-liberty/draft/appdev-guide/step_by_step.html) for uploading packages into Murano.
