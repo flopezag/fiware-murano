@@ -12,7 +12,7 @@ extra_css: ["https://fiware.org/style/fiware_readthedocs.css"]
 google_analytics: ['UA-82830081-1', 'fiware-murano.readthedocs.io']
 pages:
   - ['index.md', 'Welcome to FIWARE Murano']
-  - ['admin.md', 'FIWARE Murano Admin Guide']
-  - ['user.md', 'FIWARE Murano User Guide']
+  - ['admin_guide.md', 'FIWARE Murano Admin Guide']
+  - ['user_guide.md', 'FIWARE Murano User Guide']
   - ['docker.md', 'Working with Docker']
 
