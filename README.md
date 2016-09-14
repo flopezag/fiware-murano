@@ -46,7 +46,7 @@ FIWARE Murano, keep the specific configuration of OpenStack Murano to be applied
 If you planned to install Murano from the OpenStack you can follow the oficial [OpenStack Murano Installation Guide](http://murano.readthedocs.io/en/stable-liberty/install/index.html)
 
 
-#### Installing FIWARE Murano specific requirements
+### Installing FIWARE Murano specific requirements
 
 In addition to the oficial Murano documentation, to be FIWARE Murano aware, we need to install some extensions to Murano core library.
 It involves mainly the addition of:
@@ -57,7 +57,7 @@ It involves mainly the addition of:
 -   the murano agent configuration file: It includes different murano-agent configuration files for services to be included in the different
   linux distributions.
 
-##### Installing FIWARE Murano requirements by an script
+#### Installing FIWARE Murano requirements by an script
 fiware-murano repository contains a script which installs all the FIWARE specific requirements. This script is in charge of:
 - creating the virtualenv
 - installing python dependences,
@@ -76,7 +76,7 @@ Then, just go to folder scripts and execute the script:
     $ cd scripts
     $ ./upload_fiware_things.sh
 
-##### Installing FIWARE Murano requirements manually
+#### Installing FIWARE Murano requirements manually
 To add the new information, wee need to copy it into the murano official meta folder.  We assume that {murano_folder} is the folder where
 Openstack murano has been deployed
 
