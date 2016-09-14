@@ -4,18 +4,19 @@
 ## Introduction
 
 This guide defines the procedure to install the different components that build
-up the FIWARE Murano GE,
+up the FIWARE Murano GE.
 
 For general information, please refer to GitHub's [README](https://github.com/telefonicaid/fiware-murano/blob/master/README.md).
 
 ## Installing OpenStack Murano
 
 If you planned to install Murano from the OpenStack you can follow the oficial
-[OpenStack Murano Installation Guide](http://murano.readthedocs.io/en/stable-liberty/install/index.html)
+[OpenStack Murano Installation Guide](http://murano.readthedocs.io/en/stable-liberty/install/index.html).
 
 
 ### Installing FIWARE Murano requirements by an script
 fiware-murano repository contains a script which installs all the FIWARE specific requirements. This script is in charge of:
+
 - creating the virtualenv,
 - installing the Murano CLI, required for uploading Murano specific requirements,
 - generating the zip file including Murano specific requirements,
@@ -30,12 +31,13 @@ To execute it, it is required to export admin credentials to access to the Cloud
     $ export OS_AUTH_URL={the auth url for keystone}
 
 Then, just go to folder scripts and execute the script (this script should be executed inside scripts folder):
+
     $ cd scripts
     $ ./upload_fiware_things.sh
 
 ### Installing FIWARE Murano requirements manually
 To add the new information, wee need to copy it into the murano official meta folder.  We assume that {murano_folder} is the folder where
-Openstack murano has been deployed
+Openstack murano has been deployed.
 
     $ git clone https://github.com/telefonicaid/fiware-murano {murano_folder}
     $ cp -rf /opt/fiware-murano/meta {murano_folder}
