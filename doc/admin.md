@@ -50,7 +50,7 @@ We create a zip file
     $ zip -r ../../io.murano.zip *
     $ cd ./../../
 
-Finally, we execute the commando package-import for the murano client library (cosidering we are configuring murano agains FIWARE Lab)
+Finally, we execute the command package-import for the Murano client library (considering we are configuring Murano against FIWARE Lab)
 
     $ tox -e venv -- murano --murano-url http://localhost:8082 --os-username admin --os-password $PASSWORD \
     --os-tenant-name admin --os-auth-url=http://cloud.lab.fi-ware.org:4730/v2.0 \
