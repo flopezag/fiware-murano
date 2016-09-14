@@ -2,12 +2,11 @@ site_name: FIWARE-Murano
 site_url: https://fiware-murano.readthedocs.org
 repo_url: https://github.com/telefonicaid/fiware-murano.git
 site_description: FIWARE Murano Documentation
-docs_dir: doc/manuals
+docs_dir: doc
 site_dir: html
 markdown_extensions: [toc,fenced_code]
 use_directory_urls: false
 theme: readthedocs
-index_page: [index.md, README.md]
 extra_css: ["https://fiware.org/style/fiware_readthedocs.css"]
 google_analytics: ['UA-82830081-1', 'fiware-murano.readthedocs.io']
 pages:
