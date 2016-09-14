@@ -7,6 +7,7 @@ site_dir: html
 markdown_extensions: [toc,fenced_code]
 use_directory_urls: false
 theme: readthedocs
+index_page: [index.md, README.md]
 extra_css: ["https://fiware.org/style/fiware_readthedocs.css"]
 google_analytics: ['UA-82830081-1', 'fiware-murano.readthedocs.io']
 pages:
