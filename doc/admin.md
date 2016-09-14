@@ -29,7 +29,7 @@ To execute it, it is required to export admin credentials to access to the Cloud
     $ export OS_REGION_NAME={the region}
     $ export OS_AUTH_URL={the auth url for keystone}
 
-Then, just go to folder scripts and execute the script:
+Then, just go to folder scripts and execute the script (this script should be executed inside scripts folder):
     $ cd scripts
     $ ./upload_fiware_things.sh
 
