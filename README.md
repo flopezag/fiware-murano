@@ -59,20 +59,20 @@ It involves mainly the addition of:
 
 #### Installing FIWARE Murano requirements by an script
 fiware-murano repository contains a script which installs all the FIWARE specific requirements. This script is in charge of:
-- creating the virtualenv
-- installing python dependences,
-- generating the core library zip file
-- uploading into murano instance
+- creating the virtualenv,
+- installing the Murano CLI, required for uploading Murano specific requirements,
+- generating the zip file including Murano specific requirements,
+- uploading the core library, including the specifc requirements into Murano instance.
 
 To execute it, it is required to export admin credentials to access to the Cloud, where Murano is part of.
 
-    $ export OS_USERNAME='admin'
+    $ export OS_USERNAME={the admin user name}
     $ export OS_PASSWORD={the password for admin user}
-    $ export OS_TENANT_NAME="admin"
+    $ export OS_TENANT_NAME={the admin tenant name}
     $ export OS_REGION_NAME={the region}
     $ export OS_AUTH_URL={the auth url for keystone}
 
-Then, just go to folder scripts and execute the script:
+Then, just go to folder scripts and execute the script (this script should be executed inside scripts folder):
     $ cd scripts
     $ ./upload_fiware_things.sh
 
@@ -93,10 +93,10 @@ We create a zip file
     $ zip -r ../../io.murano.zip *
     $ cd ./../../
 
-Finally, we execute the command package-import for the Murano client library (considering we are configuring Murano against FIWARE Lab)
+Then, we execute the command package-import for the Murano client library (considering we are configuring Murano against FIWARE Lab)
 
-    $ tox -e venv -- murano --murano-url http://localhost:8082 --os-username admin --os-password $PASSWORD \
-    --os-tenant-name admin --os-auth-url=http://cloud.lab.fi-ware.org:4730/v2.0 \
+    $ tox -e venv -- murano --murano-url http://localhost:8082 --os-username $OS_ADMIN_USERNAME --os-password $OS_PASSWORD \
+    --os-tenant-name $OS_ADMIN_USERNAME --os-auth-url=$OS_AUTH_URL\
     package-import --exists-action u  --is-public io.murano.zip
 
 
