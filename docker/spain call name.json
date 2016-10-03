@@ -1,0 +1,10 @@
+{ "regionConfigs": {
+                "Spain2": {
+                    "agentRabbitMq": {
+                        "host": "murano.lab.fiware.org",
+                        "login": "guest",
+                        "password": "guest"
+			        }
+		        }
+	        } 
+}
