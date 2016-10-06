@@ -1,5 +1,5 @@
 FROM ubuntu
-ENV GIT_REV_MURANO stable/mitaka
+ENV GIT_REV_MURANO stable/newton
 RUN apt-get update &&  apt-get -y install python-pip python-dev \
   libmysqlclient-dev libpq-dev \
   libxml2-dev libxslt1-dev git \
@@ -10,6 +10,7 @@ WORKDIR /opt/murano
 RUN git checkout ${GIT_REV_MURANO}
 COPY murano.conf /opt/murano/etc/murano/murano.conf
 COPY start.sh /opt/murano/start.sh
+COPY *.json /opt/
 EXPOSE 8082
 COPY meta /opt/murano/meta2
 CMD ./start.sh
