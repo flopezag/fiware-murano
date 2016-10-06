@@ -1,4 +1,40 @@
 { "regionConfigs": {
+ "Hannover": {
+                    "agentRabbitMq": {
+                        "host": "murano.lab.fiware.org",
+                        "login": "guest",
+                        "password": "guest"
+                                }
+                        }
+                },
+
+ "Zurich2": {
+                    "agentRabbitMq": {
+                        "host": "murano.lab.fiware.org",
+                        "login": "guest",
+                        "password": "guest"
+                                }
+                        }
+                },
+"SpainTenerife": {
+                    "agentRabbitMq": {
+                        "host": "murano.lab.fiware.org",
+                        "login": "guest",
+                        "password": "guest"
+                                }
+                        }
+                },
+
+
+  "Vicenza": {
+                    "agentRabbitMq": {
+                        "host": "murano.lab.fiware.org",
+                        "login": "guest",
+                        "password": "guest"
+                                }
+                        }
+                },
+
                 "Spain2": {
                     "agentRabbitMq": {
                         "host": "murano.lab.fiware.org",
