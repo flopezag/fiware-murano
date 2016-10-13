@@ -23,7 +23,7 @@ Methods:
       - $region: config(home_region)
       - $supportReplacements:
           "%REGION%": $region
-      - $userData: $.cast(LinuxMuranoInstance).generateUserData() + $supportScript.replace($supportReplacements)
+      - $userData: $.generateUserData() + $supportScript.replace($supportReplacements)
       - $metadata: {"region" : $region, "nid": $.nid}
       - $.addMetadata($metadata)
       - Return:
@@ -57,7 +57,7 @@ Methods:
           Contract: $.string().notNull()
     Body:
       - $environment: $.find(std:Environment).require()
-      - $cloudConfigData: $.cast(ConfLangInstance).generateCloudConfig()
+      - $cloudConfigData: $.generateCloudConfig()
       - $bootConfigResourceName: format('boot_config_{0}', $.name)
       - $bootScriptResourceName: format('boot_script_{0}', $.name)
       - $userDataResourceName: format('user_data-{0}', $.name)

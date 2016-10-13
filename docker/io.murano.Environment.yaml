@@ -1,7 +1,7 @@
 regionConfigs:
   Spain2:
     agentRabbitMq:
-      host: murano.lab.fiware.org
+      host: 130.206.84.6
       login: guest
       password: guest
 
