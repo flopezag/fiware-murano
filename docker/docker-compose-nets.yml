@@ -10,6 +10,9 @@ services:
     environment:
      - PASSWORD
      - REVISION
+     - RABBIT_HOST
+     - RABBIT_LOGIN
+     - RABBIT_PASSWORD
     networks:
        - app_net
   mysql:
