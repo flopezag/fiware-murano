@@ -21,4 +21,7 @@ murano:
   environment: 
    - PASSWORD
    - REVISION
+   - RABBIT_HOST
+   - RABBIT_LOGIN
+   - RABBIT_PASSWORD 
 
