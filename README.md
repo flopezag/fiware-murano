@@ -99,6 +99,9 @@ Then, we execute the command package-import for the Murano client library (consi
     --os-tenant-name $OS_ADMIN_USERNAME --os-auth-url=$OS_AUTH_URL\
     package-import --exists-action u  --is-public io.murano.zip
 
+## Configuration
+### Configuring multiple regions
+Murano can works on top of several Heat in different regions, allowing for deploying blueprint templates in different regions. It requires to configure some information about the regions like it is explained in the [oficial documentation](http://docs.openstack.org/developer/murano/articles/multi_region.html). Concretely, it should exist a file called io.murano.Environment.yaml in the folder specified in the class_configs property. In this file information about the rabbit should be configured. 
 
 [Top](#top)
 

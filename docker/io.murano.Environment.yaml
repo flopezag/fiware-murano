@@ -1,7 +1,16 @@
 regionConfigs:
   Spain2:
     agentRabbitMq:
-      host: 130.206.84.6
-      login: guest
-      password: guest
-
+      host: RABBIT_HOST
+      login: RABBIT_LOGIN
+      password: RABBIT_PASSWORD
+  SpainTenerife:
+    agentRabbitMq:
+      host: RABBIT_HOST
+      login: RABBIT_LOGIN
+      password: RABBIT_PASSWORD
+  Zurich2:
+    agentRabbitMq:
+      host: RABBIT_HOST
+      login: RABBIT_LOGIN
+      password: RABBIT_PASSWORD
