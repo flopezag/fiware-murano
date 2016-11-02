@@ -19,6 +19,9 @@ murano:
    - mysql
    - rabbit
   environment: 
+   - RABBIT_HOST
+   - RABBIT_LOGIN
+   - RABBIT_PASSWORD
    - PASSWORD
    - REVISION
 murano-test:
