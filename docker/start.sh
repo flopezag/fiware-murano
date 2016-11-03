@@ -1,6 +1,3 @@
-echo PASSWORD
-echo ${RABBIT_HOST}
-echo $RABBIT_HOST
 sed -i -e "s/RABBIT_HOST/${RABBIT_HOST}/" /etc/murano/class-configs/io.murano.Environment.yaml 
 sed -i -e "s/RABBIT_PASSWORD/${RABBIT_PASSWORD}/" /etc/murano/class-configs/io.murano.Environment.yaml
 sed -i -e "s/RABBIT_LOGIN/${RABBIT_LOGIN}/" /etc/murano/class-configs/io.murano.Environment.yaml
