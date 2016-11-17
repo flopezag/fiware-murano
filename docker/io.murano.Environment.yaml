@@ -4,3 +4,8 @@ regionConfigs:
       host: RABBIT_HOST
       login: RABBIT_LOGIN
       password: RABBIT_PASSWORD
+  Zurich2:
+    agentRabbitMq:
+      host: RABBIT_HOST
+      login: RABBIT_LOGIN
+      password: RABBIT_PASSWORD
