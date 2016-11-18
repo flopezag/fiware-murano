@@ -35,5 +35,6 @@ else
     pip install git+https://github.com/openstack/murano-agent
   fi
 fi
-
+sed -i -e "s/stdout = stdout.decode('utf-8')/stdout = stdout.decode('utf-8')[:1000]/" /usr/local/lib/python2.7/dist-packages/muranoagent/executors/chef_puppet_executor_base.py
+sed -i -e "s/stdout = stdout.decode('utf-8')/stdout = stdout.decode('utf-8')[:1000]/" /usr/local/lib/python2.7/dist-packages/muranoagent/executors/application/__init__.py
 
