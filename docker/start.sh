@@ -1,6 +1,3 @@
-echo $PASSWORD
-echo ${RABBIT_HOST}
-echo $RABBIT_HOST
 sed -i -e "s/RABBIT_HOST/${RABBIT_HOST}/" /etc/murano/class-configs/io.murano.Environment.yaml 
 sed -i -e "s/RABBIT_PASSWORD/${RABBIT_PASSWORD}/" /etc/murano/class-configs/io.murano.Environment.yaml
 sed -i -e "s/RABBIT_LOGIN/${RABBIT_LOGIN}/" /etc/murano/class-configs/io.murano.Environment.yaml
@@ -24,4 +21,6 @@ tox -e venv -- murano --murano-url http://localhost:8082 --os-username admin --o
   package-import --exists-action u  --is-public io.murano.zip
 sed -i -e "s/interface='admin'/interface='public'/" .tox/venv/lib/python2.7/site-packages/keystoneclient/httpclient.py
 sed -i -e "s/ITERATORS_LIMIT = 2000/ITERATORS_LIMIT = 8000/" /opt/murano/murano/dsl/constants.py
+sed -i -e "s/'yaql.memoryQuota': 10000/'yaql.memoryQuota': 1000000/" /opt/murano/.tox/venv/local/lib/python2.7/site-packages/yaql/cli/run.py
+sed -i -e "s/'yaql.memoryQuota': 10000/'yaql.memoryQuota': 1000000/" /opt/murano/.tox/venv/lib/python2.7/site-packages/yaql/cli/run.py
 tox -e venv -- murano-engine --config-file ./etc/murano/murano.conf
