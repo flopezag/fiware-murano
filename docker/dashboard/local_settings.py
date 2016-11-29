@@ -15,7 +15,6 @@ DATABASES = {
     'NAME': 'murano-dashboard.sqlite',
     }
 }
-MURANO_API_URL = 'http://murano:8082'
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 # WEBROOT is the location relative to Webserver root
