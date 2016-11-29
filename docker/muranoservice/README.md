@@ -83,7 +83,7 @@ In the murano section, it is required to specified the default region in a multi
 
     region_name_for_services = RegionOne
 
-In the engine section, the folder where to configure classes required for multiregion )http://docs.openstack.org/developer/murano/articles/multi_region.html=
+In the engine section, the folder where to configure classes required for [multiregion](http://docs.openstack.org/developer/murano/articles/multi_region.html).
 
     [engine]
 
@@ -116,11 +116,13 @@ In the rabbitmq section [rabbitmq], which represents the rabbit among murano-eng
 ### Populate the murano database
 
 Use the following command:
+
     murano-db-manage upgrade
 
 ### Import core library.
-It is required to obtain the core library which is in https://github.com/openstack/murano/tree/master/meta/io.murano
+It is required to obtain the core library which is in [murano repository](https://github.com/openstack/murano/tree/master/meta/io.murano)
 We need to execute the zip file for that folder and import in murano by:
+
     murano package-import --exists-action u  --is-public io.murano.zip
 
 ### Import packages
