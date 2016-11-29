@@ -1,0 +1,6 @@
+regionConfigs:
+  Spain2:
+    agentRabbitMq:
+      host: RABBIT_HOST
+      login: RABBIT_LOGIN
+      password: RABBIT_PASSWORD
