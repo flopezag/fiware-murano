@@ -1,6 +1,13 @@
 # Installing murano as service
 ## Install murano packages
 
+Enable Openstack repositories:
+
+    apt install software-properties-common
+    add-apt-repository cloud-archive:newton
+
+Then, install murano packages:
+
     apt-get install murano-api murano-engine python-muranoclient
 
 ## Create database
@@ -83,6 +90,14 @@ In the murano section, it is required to specified the default region in a multi
 
     region_name_for_services = RegionOne
 
+In the rabbitmq section [rabbitmq], which represents the rabbit among murano-engine and virtual machines
+
+    [rabbitmq]
+    ...
+    host =130.206.84.6 (the rabbitmq host)
+    login = guest (The RabbitMQ login.)
+    password = guest (The RabbitMQ password)
+
 In the engine section, the folder where to configure classes required for [multiregion](http://docs.openstack.org/developer/murano/articles/multi_region.html).
 
     [engine]
@@ -105,13 +120,6 @@ In the networking section, specify the public network and router to be used.
     external_network = public-ext-net-01 (the public network)
     router_name = rt2-external (the router name to be created)
 
-In the rabbitmq section [rabbitmq], which represents the rabbit among murano-engine and virtual machines
-
-    [rabbitmq]
-    ...
-    host =130.206.84.6 (the rabbitmq host)
-    login = guest (The RabbitMQ login.)
-    password = guest (The RabbitMQ password)
 
 ### Populate the murano database
 
@@ -125,8 +133,25 @@ We need to execute the zip file for that folder and import in murano by:
 
     murano package-import --exists-action u  --is-public io.murano.zip
 
-### Import packages
+### Import Murano packages
 
+import a package from a local .zip file, run:
+
+    $ murano package-import /path/to/PACKAGE.zip
+
+where PACKAGE is the name of the package stored on your computer.
+
+For example:
+
+    $ murano package-import /home/downloads/mysql.zip
+    Importing package com.example.databases.MySql
+    +---------------------------------+------+----------------------------+--------------+---------+
+    | ID                              | Name | FQN                        | Author       |Is Public|
+    +---------------------------------+------+----------------------------+--------------+---------+
+    | 83e4038885c248e3a758f8217ff8241f| MySQL| com.example.databases.MySql| Mirantis, Inc|         |
+    +---------------------------------+------+----------------------------+--------------+---------+
+
+Murano fiware packages are in the following [link](https://github.com/telefonicaid/fiware-enablers/tree/develop/murano-apps).
 
 ## How to use muranoservice with Docker
 
