@@ -15,7 +15,7 @@ rabbit:
    ports:
    - 5672:5672
 murano:
-  image: a
+  image: murano-service
   extra_hosts:
   - "murano.lab.fiware.org:127.0.0.1"
   ports:

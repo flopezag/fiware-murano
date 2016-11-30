@@ -128,3 +128,72 @@ We need to execute the zip file for that folder and import in murano by:
 ### Import packages
 
 
+## How to use muranoservice with Docker
+
+There are several options to use FIWARE_MURANO very easily using docker. These are (in order of complexity):
+
+- _"Have everything automatically done for me"_. See Section **1. The Fastest Way** (recommended).
+- _"Check the acceptance tests are running properly"_ or _"I want to check that my fiware-murano instance run properly"_ . See Section **3. Run Acceptance tests**.
+
+You do not need to do all of them, just use the first one if you want to have a fully operational Aiakos instance and maybe third one to check if your Aiakos instance run properly.
+
+You do need to have docker in your machine. See the [documentation](https://docs.docker.com/installation/) on how to do this. Additionally, you can use the proper FIWARE Lab docker functionality to deploy dockers image there. See the [documentation](https://docs.docker.com/installation/)
+
+----
+## 1. The Fastest Way
+
+Docker allows you to deploy an muranoservice container in a few minutes. This method requires that you have installed docker or can deploy container into the FIWARE Lab (see previous details about it).
+
+Consider this method if you want to try muranoservice and do not want to bother about losing data.
+
+Follow these steps:
+
+1. Download [fiware-murano' source code](https://github.com/telefonicaid/fiware-murano) from GitHub (`git clone https://github.com/telefonicaid/fiware-murano.git`)
+2. `cd fiware-murano/docker/muranoservice`
+3. Using the command-line and within the directory you created type: `docker build -t muranoservice -f Dockerfile .`.
+
+After a few seconds you should have your fiware-murano image created. Just run the command `docker images` and you see the following response:
+
+    REPOSITORY          TAG                 IMAGE ID            CREATED              SIZE
+    muranoservice      latest              bd78d006c2ea        About a minute ago   480.8 MB
+    ...
+
+muranoservice image needs the PASSWORD variable to be defined, as well as RABBIT_HOST, RABBIT_LOGIN and RABBIT_PASSWORD for multi-region.
+In addition, it needs the docker mysql and rabbitmq alredy deployed.
+Thus, to deploy the contanair we need
+to execute the command `docker run -p 8082:8082 -e PASSWORD=$PASSWORD -e RABBIT_HOST=RABBIT_HOST -e RABBIT_LOGIN=RABBIT_LOGIN -e RABBIT_PASSWORD=RABBIT_PASSWORD--link rabbit --link mysql -d fiware-murano`. It will launch the fiware-murano service
+listening on port `8082`, which is linked to mysql and rabbitmq dockers and which has the environment variable password required for configuring murano.
+
+To check that the service is running correcly, just do
+
+	curl <IP address of a machine>:8082
+
+You can obtain the IP address of the machine just executing `docker-machine ip`.
+
+If you want to stop the scenario you have to execute `docker ps` and you see something like this:
+
+    CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+    b8e1de41deb5        muranoservice      "/bin/sh -c ./start.s"   6 minutes ago       Up 6 minutes        0.0.0.0:8082->8082/tcp   fervent_davinci
+    ...
+
+Take the Container ID and execute `docker stop b8e1de41deb5` or `docker kill b8e1de41deb5`. Note that you will lose any data that was being used in
+muranoservice using this method.
+
+However, there is a simpler way to deploy the container. That is docker-compose and it avoids to deploy containers previously and specifies the port for
+murano. It involves just exporting the following variables:
+    `export PASSWORD=<OpenStack admin user password>`
+    `export RABBIT_HOST=<host where the rabbitmq is located>`
+    `export RABBIT_LOGIN=<login for the rabbitmq>`
+    `export RABBIT_PASSWORD=<password for the rabbitmq`
+
+and executing `docker-compose up -d` to launch the architecture. If you want to check the containers just execute `docker-compose ps`.
+
+        Name                    Command               State                    Ports
+    --------------------------------------------------------------------------------------------------
+    muranoservice     /bin/sh -c ./start.sh            Up      0.0.0.0:8082->8082/tcp
+    mysql             docker-entrypoint.sh mysqld      Up      3306/tcp
+    rabbit            /docker-entrypoint.sh rabb ...   Up      25672/tcp, 4369/tcp, 5671/tcp, 5672/tcp
+
+
+You can take a look to the log generated executing `docker-compose logs`.
+
