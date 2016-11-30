@@ -133,6 +133,14 @@ We need to execute the zip file for that folder and import in murano by:
 
     murano package-import --exists-action u  --is-public io.murano.zip
 
+For obtaining the files for the murano core library, it is required to obtain the core library from murano Openstack repository plus the Fiware
+specific requirements. An example to do it can be:
+
+    mkdir /murano && cd /murano && git init && git remote add -f origin https://github.com/openstack/murano && git config core.sparseCheckout true && echo "meta/io.murano/" >> .git/info/sparse-checkout && git pull origin stable/newton
+    mkdir /fiware-murano && cd /fiware-murano && git init && git remote add -f origin https://github.com/telefonicaid/fiware-murano  && git config core.sparseCheckout true && echo "docker/meta/io.murano/" >> .git/info/sparse-checkout && git pull origin develop
+    cp -rf /fiware-murano/docker/* /murano
+    echo "  io.murano.resources.FiwareMuranoInstance: resources/FiwareMuranoInstance.yaml" >> /murano/meta/io.murano/manifest.yaml
+
 ### Import Murano packages
 
 import a package from a local .zip file, run:
