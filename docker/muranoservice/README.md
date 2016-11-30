@@ -161,7 +161,11 @@ After a few seconds you should have your fiware-murano image created. Just run t
 muranoservice image needs the PASSWORD variable to be defined, as well as RABBIT_HOST, RABBIT_LOGIN and RABBIT_PASSWORD for multi-region.
 In addition, it needs the docker mysql and rabbitmq alredy deployed.
 Thus, to deploy the contanair we need
-to execute the command `docker run -p 8082:8082 -e PASSWORD=$PASSWORD -e RABBIT_HOST=RABBIT_HOST -e RABBIT_LOGIN=RABBIT_LOGIN -e RABBIT_PASSWORD=RABBIT_PASSWORD--link rabbit --link mysql -d fiware-murano`. It will launch the fiware-murano service
+to execute the command:
+
+    docker run -p 8082:8082 -e PASSWORD=$PASSWORD -e RABBIT_HOST=RABBIT_HOST -e RABBIT_LOGIN=RABBIT_LOGIN -e RABBIT_PASSWORD=RABBIT_PASSWORD--link rabbit --link mysql -d fiware-murano
+
+It will launch the fiware-murano service
 listening on port `8082`, which is linked to mysql and rabbitmq dockers and which has the environment variable password required for configuring murano.
 
 To check that the service is running correcly, just do
@@ -181,10 +185,11 @@ muranoservice using this method.
 
 However, there is a simpler way to deploy the container. That is docker-compose and it avoids to deploy containers previously and specifies the port for
 murano. It involves just exporting the following variables:
-    `export PASSWORD=<OpenStack admin user password>`
-    `export RABBIT_HOST=<host where the rabbitmq is located>`
-    `export RABBIT_LOGIN=<login for the rabbitmq>`
-    `export RABBIT_PASSWORD=<password for the rabbitmq`
+
+    export PASSWORD=<OpenStack admin user password>
+    export RABBIT_HOST=<host where the rabbitmq is located>
+    export RABBIT_LOGIN=<login for the rabbitmq>
+    export RABBIT_PASSWORD=<password for the rabbitmq
 
 and executing `docker-compose up -d` to launch the architecture. If you want to check the containers just execute `docker-compose ps`.
 
