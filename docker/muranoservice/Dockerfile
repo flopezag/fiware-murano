@@ -1,3 +1,10 @@
+# Docker for installing murano from Ubuntu packages
+#
+#  docker run -p 8082:8082 -e PASSWORD=$PASSWORD -e RABBIT_HOST=$RABBIT_HOST
+# -e RABBIT_LOGIN=$RABBIT_LOGIN -e RABBIT_PASSWORD=$RABBIT_PASSWORD --link rabbit
+# --link mysql -d muranoservice
+
+
 FROM ubuntu:16.04
 RUN apt-get update && apt-get install -y software-properties-common && add-apt-repository cloud-archive:newton
 RUN apt-get update && apt-get -y dist-upgrade && DEBIAN_FRONTEND=noninteractive apt-get install -y git netcat murano-api murano-engine python-muranoclient
